@@ -1,0 +1,2084 @@
+---
+layout: page
+title: Page
+---
+{% raw %}
+<h1 class="unnumbered" id="ch:micromagnetism">
+ Micromagnetism
+</h1>
+<table>
+ <thead>
+  <tr class="header">
+   <th style="text-align: left;">
+    <strong>
+     Model
+    </strong>
+   </th>
+   <th style="text-align: left;">
+    <strong>
+     Description
+    </strong>
+   </th>
+   <th style="text-align: right;">
+    <strong>
+     Length Scale
+    </strong>
+   </th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr class="odd">
+   <td style="text-align: left;">
+    Atomic level theory
+   </td>
+   <td style="text-align: left;">
+    Quantum mechanical ab initio calculations
+   </td>
+   <td style="text-align: right;">
+    <span class="math">
+     \(&lt; 1\,\text{nm}\)
+    </span>
+   </td>
+  </tr>
+  <tr class="even">
+   <td style="text-align: left;">
+    Micromagnetic theory
+   </td>
+   <td style="text-align: left;">
+    Continuous description of the magnetization
+   </td>
+   <td style="text-align: right;">
+    <span class="math">
+     \(1-1000\,\text{nm}\)
+    </span>
+   </td>
+  </tr>
+  <tr class="odd">
+   <td style="text-align: left;">
+    Domain theory
+   </td>
+   <td style="text-align: left;">
+    Description of domain structure
+   </td>
+   <td style="text-align: right;">
+    <span class="math">
+     \(1-1000\,\mu\text{m}\)
+    </span>
+   </td>
+  </tr>
+  <tr class="even">
+   <td style="text-align: left;">
+    Phase theory
+   </td>
+   <td style="text-align: left;">
+    Description of ensembles of domains
+   </td>
+   <td style="text-align: right;">
+    <span class="math">
+     \(&gt; 0.1\,\text{mm}\)
+    </span>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+ [tab:magnetism-models]
+</p>
+<p>
+ Ferromagnetic materials from the viewpoint of theoretical physics are most accurately described by the theory of quantum mechanics. In this theory the ferromagnet is described by a
+ <span class="math">
+  \(N\)
+ </span>
+ -body problem whose complexity grows exponentially with the number of involved bodies
+ <span class="math">
+  \(N\)
+ </span>
+ <span class="citation" data-cites="thouless_1961">
+  Thouless (1961)
+ </span>
+ . Thus analytical calculations in this framework are restricted to very small systems.
+</p>
+<p>
+ Different models have been proposed in order to approximately describe ferromagnetic materials on a macroscopic scale. Depending on the simplifications introduced by a particular model it is able to describe the system accurately only under certain assumptions and on a certain length scale. Table [tab:magnetism-models] gives an overview of established models for the description of ferromagnets on different length scales.
+</p>
+<p>
+ For the description of ferromagnetism on the micron scale the theory of micromagnetism has proved to be a reliable tool. In contrast to domain theory it is able to resolve the inner structure of domain walls. On the other hand the micromagnetic equations can be solved numerically for relatively large system compared to atomistic approaches.
+</p>
+<p>
+ This chapter is organized as follows. In Sec. <a href="#sec-assumptions">0.1</a> the assumptions and simplifications of the micromagnetic model are discussed. Section <a href="#sec-energetics">0.2</a> provides an overview over the different energy contributions of a ferromagnetic body. In Sec. <a href="#sec-llg">0.3</a> the Landau-Lifshitz-Gilbert equation is introduced, which describes the magnetization dynamics in micromagnetism. Section <a href="#sec-micromag-limits">0.4</a> and <a href="#sec-solving-micromag">0.5</a> discuss extensions, limits and solutions of the micromagnetic equations.
+</p>
+<h2 id="sec-assumptions">
+ <span class="header-section-number">
+  0.1
+ </span>
+ Assumptions in Micromagnetism
+</h2>
+<p>
+ Magnetic matter basically consists of magnetic dipoles called elementary magnets. These dipoles can be identified with spins and orbital angular momentum of charges on the atomic level. Macroscopic magnetic properties are consequently derived from the interaction and superposition of these dipoles.
+</p>
+<p>
+ In the special case of ferromagnetic materials, electrons with overlapping wave functions favor a parallel spin alignment due to the so-called exchange interaction, see Sec. <a href="#sec-energetics-exchange">0.2.1</a>. The alignment of elementary magnets
+ <span class="math">
+  \(\boldsymbol{m}_i\)
+ </span>
+ at places
+ <span class="math">
+  \(\boldsymbol{r}_i\)
+ </span>
+ can thus be assumed to be locally almost parallel
+</p>
+<p>
+ <span class="math">
+  \[\boldsymbol{m}_i \approx \boldsymbol{m}_j
+  \quad \text{for} \quad
+  |\boldsymbol{r}_i - \boldsymbol{r}_j| &lt; \lambda
+  \label{eq:neighbors_equal}\]
+ </span>
+</p>
+<p>
+ where
+ <span class="math">
+  \(\lambda\)
+ </span>
+ is a measure for the range of the exchange interaction, called the exchange length. Further a homogeneous density of elementary magnets is assumed. Taking into account these assumptions the discrete distribution of magnetic moments
+ <span class="math">
+  \(\boldsymbol{m}_i\)
+ </span>
+ can be well approximated by a continuous vector density
+ <span class="math">
+  \({\boldsymbol{M}_{}(\boldsymbol{r})}\)
+ </span>
+ such that
+</p>
+<p>
+ <span class="math">
+  \[\int_\Omega {\boldsymbol{M}_{}(\boldsymbol{r})} \,\text{d}\boldsymbol{r}\approx
+  \sum_i \mathbb{1}_\Omega (\boldsymbol{r}_i) \boldsymbol{m}_i
+  \label{eq:discrete_to_continuum}\]
+ </span>
+</p>
+<p>
+ holds approximately for volumes
+ <span class="math">
+  \(\Omega\)
+ </span>
+ of the size
+ <span class="math">
+  \(\lambda^3\)
+ </span>
+ and bigger. It is important to understand that the existence and the range of the exchange interaction is crucial for a good approximation in Eqn.
+ <span class="math">
+  \(\text{\ref{eq:discrete_to_continuum}}\)
+ </span>
+ . The vector field
+ <span class="math">
+  \(\boldsymbol{M}\)
+ </span>
+ is called magnetization. Due to the homogeneous density of elementary magnets it has a constant norm
+</p>
+<p>
+ <span class="math">
+  \[{\boldsymbol{M}_{}(\boldsymbol{r})} = M_{\text{s}} \cdot {\boldsymbol{m}_{}(\boldsymbol{r})}
+  \quad \text{with} \quad
+  | {\boldsymbol{m}_{}(\boldsymbol{r})} | = 1.
+  \label{eq:normalized_magnetization}\]
+ </span>
+</p>
+<p>
+ where
+ <span class="math">
+  \(M_{\text{s}}\)
+ </span>
+ is called the saturation magnetization. In the following the unit vector field
+ <span class="math">
+  \(\boldsymbol{m}\)
+ </span>
+ which should not be confused with the moments
+ <span class="math">
+  \(\boldsymbol{m}_i\)
+ </span>
+ will often be used instead of
+ <span class="math">
+  \(\boldsymbol{M}\)
+ </span>
+ .
+</p>
+<p>
+ The continuous magnetization field is a common parameter in classical electrodynamics
+ <span class="citation" data-cites="jackson_1999">
+  Jackson (1999)
+ </span>
+ . Micromagnetism extends the classical field theory by non classical effects such as the exchange interaction. These effects are expressed in the framework of a continuum theory, see Sec. <a href="#sec-energetics">0.2</a>. Moreover, micromagnetism describes the dynamics of the magnetization field by the Landau-Lifshitz-Gilbert equation, see Sec. <a href="#sec-llg">0.3</a>. Due to this combination of classical field theory and quantum mechanics, micromagnetism is often referred to as semi-classical continuum theory.
+</p>
+<h2 id="sec-energetics">
+ <span class="header-section-number">
+  0.2
+ </span>
+ Energetics of a Ferromagnet
+</h2>
+<p>
+ The total energy of a ferromagnet with respect to the magnetization is influenced by a multitude of physical effects. While some of these effects have a classical description, like the demagnetization energy and the Zeeman energy, others have a quantum mechanical origin and have to be adapted to the continuum theory of micromagnetism, e.g. the exchange energy and the anisotropy energy. By finding local minima of the energy functional, stable magnetization configurations can be obtained. However, the total energy does also play an important role for the dynamics of a ferromagnet as will be seen in Sec. <a href="#sec-llg">0.3</a>.
+</p>
+<h3 id="sec-energetics-exchange">
+ <span class="header-section-number">
+  0.2.1
+ </span>
+ Exchange Energy
+</h3>
+<p>
+ The characteristic feature of ferromagnetic materials is the existence of spontaneous magnetization. From classical electrodynamics it is known that neighboring spins energetically favor an antiparallel alignment
+ <span class="citation" data-cites="jackson_1999">
+  Jackson (1999)
+ </span>
+ . Consequently macroscopic magnetic bodies are expected to avoid a uniform magnetization, which in fact is the case for paramagnetic and diamagnetic materials.
+</p>
+<p>
+ However, the elementary magnets in ferromagnetic materials are subject to the so-called exchange interaction. This quantummechanical effect leads to an energetically favored parallel alignment of neighboring spins and thus to macroscopic uniform magnetization configurations.
+</p>
+<p>
+ The exchange energy is derived from the Coulomb energy of two indistinguishable particles with overlapping wave functions. A two-particle system of fermions features an antisymmetric overall wave function. For a singlet spin configuration this leads to a symmetric orbital wavefunction, whereas a triplet spin configuration leads to an antisymmetric orbital wave function. The expectation value of the two-particle distance is larger for antisymmetric orbital wave functions. Hence the triplet spin configuration leads to a lowered Coulomb energy and is thus energetically favored. In the classical picture the triplet configuration corresponds to a parallel alignment of spins. A detailed discussion of the exchange interaction can be found in any textbook on quantummechanics, e.g.
+ <span class="citation" data-cites="griffiths_1994">
+  Griffiths (1994)
+ </span>
+ .
+</p>
+<p>
+ Here we will use the classical Heisenberg Hamiltonian for two neighboring spins as starting point to derive a micromagnetic expression for the exchange energy
+</p>
+<p>
+ <span class="math">
+  \[E_{i,j} = - J \, \boldsymbol{S}_i \cdot \boldsymbol{S}_j
+  \label{eq:energetics_heisenberg}\]
+ </span>
+</p>
+<p>
+ where
+ <span class="math">
+  \(J\)
+ </span>
+ is the so-called exchange integral and
+ <span class="math">
+  \(\boldsymbol{S}_i\)
+ </span>
+ and
+ <span class="math">
+  \(\boldsymbol{S}_j\)
+ </span>
+ are two neighboring classical spins. With the magnitude of the spins
+ <span class="math">
+  \(S = |\boldsymbol{S}_i| = |\boldsymbol{S}_j|\)
+ </span>
+ und the unit vectors
+ <span class="math">
+  \(\boldsymbol{n}_i = \boldsymbol{S}_i / S\)
+ </span>
+ and
+ <span class="math">
+  \(\boldsymbol{n}_j = \boldsymbol{S}_j / S\)
+ </span>
+ this can be written as
+</p>
+<p>
+ <span class="math">
+  \begin{align}
+  E_{i,j} &amp;= - J \, S^2 \, \boldsymbol{n}_i \cdot \boldsymbol{n}_j  \label{eq:exchange_discrete} \\
+    &amp;= - J \, S^2 \, [ 1 - \frac{1}{2} (\boldsymbol{n}_i - \boldsymbol{n}_j)^2 ]\end{align}
+ </span>
+</p>
+<p>
+ The exchange energy of a magnetic body is calculated by summing up
+</p>
+<p>
+ <span class="math">
+  \[E = \sum_{i,j} 
+  - J_{ij} \, S^2 \, [ 1 - \frac{1}{2} (\boldsymbol{n}_i - \boldsymbol{n}_j)^2 ]\]
+ </span>
+</p>
+<p>
+ where
+ <span class="math">
+  \(J_{ij}\)
+ </span>
+ is the exchange integral for spins
+ <span class="math">
+  \(i\)
+ </span>
+ and
+ <span class="math">
+  \(j\)
+ </span>
+ . That means
+ <span class="math">
+  \(J_{ij} \neq 0\)
+ </span>
+ only for exchange coupled, usually neighboring, spins. In the theory of micromagnetism this expression has to be adapted to the continuous magnetization field
+ <span class="math">
+  \(\boldsymbol{m}\)
+ </span>
+ . The scalar product in Eqn.
+ <span class="math">
+  \(\text{\ref{eq:exchange_discrete}}\)
+ </span>
+ is analogously given by
+</p>
+<p>
+ <span class="math">
+  \[{\boldsymbol{m}_{}(\boldsymbol{r})} \cdot \boldsymbol{m}(\boldsymbol{r} + \Delta \boldsymbol{r}) =
+  1 - \frac{1}{2} [{\boldsymbol{m}_{}(\boldsymbol{r})} - \boldsymbol{m}(\boldsymbol{r} + \Delta \boldsymbol{r})]^2
+  \label{eq:exchange_continuous_1}\]
+ </span>
+</p>
+<p>
+ where
+ <span class="math">
+  \(\Delta \boldsymbol{r}\)
+ </span>
+ is chosen as distance vector between two exchange coupled magnetic moments. Expanding
+ <span class="math">
+  \(\boldsymbol{m}(\boldsymbol{r} + \Delta \boldsymbol{r})\)
+ </span>
+ in
+ <span class="math">
+  \(\Delta \boldsymbol{r}\)
+ </span>
+ up to first order and inserting into Eqn.
+ <span class="math">
+  \(\text{\ref{eq:exchange_continuous_1}}\)
+ </span>
+ yields
+</p>
+<p>
+ <span class="math">
+  \[{\boldsymbol{m}_{}(\boldsymbol{r})} \cdot \boldsymbol{m}(\boldsymbol{r} + \Delta \boldsymbol{r}) \approx 
+  1 - \frac{1}{2} 
+  \sum_i (\Delta \boldsymbol{r} \cdot \boldsymbol{\nabla}m_i)^2.
+  \label{eq:exchange_continuous_2}\]
+ </span>
+</p>
+<p>
+ The energy for a magnetic body is obtained by summing up contributions from different distance vectors
+ <span class="math">
+  \(\Delta \boldsymbol{r}_i\)
+ </span>
+ depending on the crystal structure and integration over the magnetic body
+</p>
+<p>
+ <span class="math">
+  \[E = \int_\Omega \sum_i A_i \, {\boldsymbol{m}_{}(\boldsymbol{r})} \cdot \boldsymbol{m}(\boldsymbol{r} + \Delta \boldsymbol{r}_i) \,\text{d}\boldsymbol{r}\]
+ </span>
+</p>
+<p>
+ where
+ <span class="math">
+  \(A_i\)
+ </span>
+ are called exchange constants and include the exchange integral and the magnitude of the spins involved. Inserting Eqn.
+ <span class="math">
+  \(\text{\ref{eq:exchange_continuous_2}}\)
+ </span>
+ yields the general expression
+</p>
+<p>
+ <span class="math">
+  \[E  = C + \int_\Omega \sum_{i,j,k} A_{jk} \frac{\partial m_i}{\partial x_j} \frac{\partial m_i}{\partial x_k} \,\text{d}\boldsymbol{r}\label{eq:exchange_continuous_3}\]
+ </span>
+</p>
+<p>
+ for the exchange energy. The constant
+ <span class="math">
+  \(C\)
+ </span>
+ results from the integration of the constant term of Eqn.
+ <span class="math">
+  \(\text{\ref{eq:exchange_continuous_2}}\)
+ </span>
+ and can be omitted without changing the physics of the system. Here
+ <span class="math">
+  \(A_{jk}\)
+ </span>
+ is a matrix of exchange constants. By rotation of the coordinate system this matrix can be diagonalized
+ <span class="citation" data-cites="doering_1966">
+  Döring (1966)
+ </span>
+ which yields
+</p>
+<p>
+ <span class="math">
+  \[E  = \int_\Omega \sum_{i,j} A_{j} \left( \frac{\partial m_i}{\partial x_j} \right)^2 \,\text{d}\boldsymbol{r}.
+  \label{eq:exchange_continuous_4}\]
+ </span>
+</p>
+<p>
+ In the case of cubic and isotropic materials the exchange constant does not depend on the spatial dimension und thus Eqn.
+ <span class="math">
+  \(\text{\ref{eq:exchange_continuous_4}}\)
+ </span>
+ further reduces to
+</p>
+<p>
+ <span class="math">
+  \[E = A \int_\Omega \sum_{i} (\boldsymbol{\nabla}m_i)^2 \,\text{d}\boldsymbol{r}= A \int_\Omega (\boldsymbol{\nabla}\boldsymbol{m})^2 \,\text{d}\boldsymbol{r}.
+  \label{eq:exchange_continuous_final}\]
+ </span>
+</p>
+<p>
+ This expression turns out to accurately describe most materials and is usually used in micromagnetics. The exchange constant
+ <span class="math">
+  \(A\)
+ </span>
+ is determined experimentally.
+</p>
+<p>
+ Note that this result was derived from the classical Heisenberg model that assumes localized spins. In metallic ferromagnets the spins are not localized and the Heisenberg model does not apply. However, Eqn.
+ <span class="math">
+  \(\text{\ref{eq:exchange_continuous_final}}\)
+ </span>
+ still describes the exchange interaction phenomenologically up to first order
+ <span class="citation" data-cites="hubert_1998">
+  Hubert and Schäfer (1998)
+ </span>
+ .
+</p>
+<h3 id="sec-energetics-demag">
+ <span class="header-section-number">
+  0.2.2
+ </span>
+ Demagnetization Energy
+</h3>
+<p>
+ The demagnetization energy, also called magnetostatic energy or stray-field energy, is the energy of the magnetization in the magnetic field created by the magnetization itself. This means that this energy contribution accounts for the dipole–dipole interaction of the elementary magnets.
+</p>
+<p>
+ The demagnetization energy can be derived from classical electromagnetics. Maxwell’s equations for electrostatics, assuming a vanishing current
+ <span class="math">
+  \(\boldsymbol{J}\)
+ </span>
+ , are given by
+</p>
+<p>
+ <span class="math">
+  \begin{align}
+  \boldsymbol{\nabla}\cdot  \boldsymbol{B} &amp;= 0   \label{eq:demag_zero_div} \\
+  \boldsymbol{\nabla}\times \boldsymbol{H} &amp;= 0  \label{eq:demag_zero_curl}\end{align}
+ </span>
+</p>
+<p>
+ where the magnetic flux
+ <span class="math">
+  \(\boldsymbol{B}\)
+ </span>
+ is connected to the magnetic field
+ <span class="math">
+  \(\boldsymbol{H}\)
+ </span>
+ via the magnetization
+ <span class="math">
+  \(\boldsymbol{M}\)
+ </span>
+</p>
+<p>
+ <span class="math">
+  \[\boldsymbol{B} = \mu_0 (\boldsymbol{H} + \boldsymbol{M}).\]
+ </span>
+</p>
+<p>
+ Equation
+ <span class="math">
+  \(\text{\ref{eq:demag_zero_curl}}\)
+ </span>
+ is equivalent to the magnetic field
+ <span class="math">
+  \(\boldsymbol{H}\)
+ </span>
+ being the gradient of a scalar potential
+ <span class="math">
+  \(u\)
+ </span>
+ . Hence the demagnetization-field is the solution to the system
+</p>
+<p>
+ <span class="math">
+  \begin{align}
+  \Delta u &amp;= \boldsymbol{\nabla}\cdot \boldsymbol{M} \label{eq:demag_poisson} \\
+  \boldsymbol{H}  &amp;= - \boldsymbol{\nabla}u.          \label{eq:demag_scalar_potential}\end{align}
+ </span>
+</p>
+<p>
+ The boundary condition to this system is given in an asymptotical fashion by
+</p>
+<p>
+ <span class="math">
+  \[{u_{}(\boldsymbol{r})} = \mathcal{O}(1 / |\boldsymbol{r}|) \text{ for } |\boldsymbol{r}| \rightarrow \infty.
+  \label{eq:demag_open_boundary}\]
+ </span>
+</p>
+<p>
+ This condition states that the potential drops to zero at infinity. It is often referred to as open boundary condition. Equation
+ <span class="math">
+  \(\text{\ref{eq:demag_poisson}}\)
+ </span>
+ is Poisson’s equation and can be solved with the well known Green’s function of the Laplacian, which naturally satisfies the boundary condition
+ <span class="math">
+  \(\text{\ref{eq:demag_open_boundary}}\)
+ </span>
+ , see
+ <span class="citation" data-cites="jackson_1999">
+  Jackson (1999)
+ </span>
+</p>
+<p>
+ <span class="math">
+  \[{u_{}(\boldsymbol{r})} = - \frac{1}{4 \pi} \int \frac{\boldsymbol{\nabla}' \cdot {\boldsymbol{M}_{}(\boldsymbol{r}')}}{|\boldsymbol{r} - \boldsymbol{r}'|} \,\text{d}\boldsymbol{r}'
+  \label{eq:demag_whole_space}\]
+ </span>
+</p>
+<p>
+ where the integration is carried out over the whole space. In the case of an ideal magnetic body the magnetization is only defined on a finite region
+ <span class="math">
+  \(\Omega\)
+ </span>
+</p>
+<p>
+ <span class="math">
+  \begin{align}
+  |{\boldsymbol{M}_{}(\boldsymbol{r})}| = \left\{ \begin{array}{cl}
+      M_{\text{s}} &amp; \text{if } \boldsymbol{r} \in \Omega \\
+      0 &amp; \text{else}
+  \end{array} \right.\end{align}
+ </span>
+</p>
+<p>
+ which leads to a discontinuity of
+ <span class="math">
+  \(\boldsymbol{M}\)
+ </span>
+ on the boundary
+ <span class="math">
+  \(\partial \Omega\)
+ </span>
+ .
+</p>
+<p id="fig-demag-limit">
+ <img alt=" Sketch of the limiting procedure used for the derivation of the boundary term in the integral solution of the scalar potential. The discontinuity of the magnetization across the sample boundary \partial \Omega is smoothed out in a region \Omega_{\text{d}} surrounding the sample. " src="/images/demag_limit.svg"/>
+ <div class="caption">
+  <span class="label">
+   Figure 1:
+  </span>
+  Sketch of the limiting procedure used for the derivation of the boundary term in the integral solution of the scalar potential. The discontinuity of the magnetization across the sample boundary \partial \Omega is smoothed out in a region \Omega_{\text{d}} surrounding the sample.
+ </div>
+</p>
+<p>
+ In this case the solution of Eqn.
+ <span class="math">
+  \(\text{\ref{eq:demag_whole_space}}\)
+ </span>
+ can be obtained by a limiting process. Consider a finite region
+ <span class="math">
+  \(\Omega_{\text{d}}\)
+ </span>
+ that surrounds the magnetic body
+ <span class="math">
+  \(\Omega\)
+ </span>
+ . Further we assume a smooth decay of the magnetization within
+ <span class="math">
+  \(\Omega_{\text{d}}\)
+ </span>
+ , see Fig. <a href="#fig-demag-limit">1</a>. With the magnetization and its divergence vanishing in the outside region
+ <span class="math">
+  \(\mathbb{R}^3 \backslash \Omega \cup \Omega_{\text{d}}\)
+ </span>
+ Eqn.
+ <span class="math">
+  \(\text{\ref{eq:demag_whole_space}}\)
+ </span>
+ can be written as
+</p>
+<p>
+ <span class="math">
+  \[{u_{}(\boldsymbol{r})} =
+  - \frac{1}{4 \pi}  \left[
+  \int_{\Omega} \frac{\boldsymbol{\nabla}' \cdot {\boldsymbol{M}_{}(\boldsymbol{r}')}}{|\boldsymbol{r} - \boldsymbol{r}'|} \,\text{d}\boldsymbol{r}'
+  + \int_{\Omega_{\text{d}}} \frac{\boldsymbol{\nabla}' \cdot {\boldsymbol{M}_{}(\boldsymbol{r}')}}{|\boldsymbol{r} - \boldsymbol{r}'|} \,\text{d}\boldsymbol{r}'
+  \right].
+  \label{eq:demag_split}\]
+ </span>
+</p>
+<p>
+ Applying Green’s theorem to the integral over
+ <span class="math">
+  \(\Omega_{\text{d}}\)
+ </span>
+ yields
+</p>
+<p>
+ <span class="math">
+  \[\int_{\Omega_{\text{d}}} \frac{\boldsymbol{\nabla}' \cdot {\boldsymbol{M}_{}(\boldsymbol{r}')}}{|\boldsymbol{r} - \boldsymbol{r}'|} \,\text{d}\boldsymbol{r}'
+  =
+  \int_{\partial \Omega_{\text{d}}} \frac{{\boldsymbol{M}_{}(\boldsymbol{r}')} \cdot \boldsymbol{n}}{|\boldsymbol{r} - \boldsymbol{r}'|} \,\text{d}\boldsymbol{s}'
+  - \int_{\Omega_{\text{d}}} {\boldsymbol{M}_{}(\boldsymbol{r}')} \cdot \boldsymbol{\nabla}' \frac{1}{|\boldsymbol{r} - \boldsymbol{r}'|} \,\text{d}\boldsymbol{r}'
+  \label{eq:demag_green}\]
+ </span>
+</p>
+<p>
+ where
+ <span class="math">
+  \(\,\text{d}\boldsymbol{s}'\)
+ </span>
+ is the area measure to
+ <span class="math">
+  \(\boldsymbol{r}'\)
+ </span>
+ and
+ <span class="math">
+  \(\boldsymbol{n}\)
+ </span>
+ is the unit outward normal. In the limit of a rapidly decaying magnetization
+ <span class="math">
+  \(\boldsymbol{M}\)
+ </span>
+ the region
+ <span class="math">
+  \(\Omega_{\text{d}}\)
+ </span>
+ can become infinitely small without changing the result of Eqn.
+ <span class="math">
+  \(\text{\ref{eq:demag_green}}\)
+ </span>
+ . In this case the right-hand side of Eqn.
+ <span class="math">
+  \(\text{\ref{eq:demag_green}}\)
+ </span>
+ reduces to the boundary integral since the volume integral has a finite integrand and is carried out over an infinitely small volume. The boundary
+ <span class="math">
+  \(\partial \Omega_{\text{d}}\)
+ </span>
+ consists of an inner and an outer boundary. The integral over the outer boundary vanishes, because of a vanishing magnetization
+ <span class="math">
+  \(\boldsymbol{M}\)
+ </span>
+ . The inner boundary coincides with the boundary of the magnetic body
+ <span class="math">
+  \(\partial \Omega\)
+ </span>
+ except for the orientation. Thus the boundary integral can be replaced by an integral over
+ <span class="math">
+  \(\partial \Omega\)
+ </span>
+ with opposite sign. Inserting into Eqn.
+ <span class="math">
+  \(\text{\ref{eq:demag_split}}\)
+ </span>
+ results in
+</p>
+<p>
+ <span class="math">
+  \[{u_{}(\boldsymbol{r})} =
+  - \frac{1}{4 \pi}  \left[
+  \int_\Omega \frac{\boldsymbol{\nabla}' \cdot {\boldsymbol{M}_{}(\boldsymbol{r}')}}{|\boldsymbol{r} - \boldsymbol{r}'|} \,\text{d}\boldsymbol{r}'
+  - \int_{\partial \Omega} \frac{{\boldsymbol{M}_{}(\boldsymbol{r}')} \cdot \boldsymbol{n}}{|\boldsymbol{r} - \boldsymbol{r}'|} \,\text{d}\boldsymbol{s}'
+  \right].
+  \label{eq:demag_jackson}\]
+ </span>
+</p>
+<p>
+ The expressions
+ <span class="math">
+  \(\rho = - \boldsymbol{\nabla}\boldsymbol{M}\)
+ </span>
+ and
+ <span class="math">
+  \(\sigma = \boldsymbol{M} \cdot \boldsymbol{n}\)
+ </span>
+ are often referred to as magnetic volume charges and magnetic surfaces charges respectivly. An alternative expression to Eqn.
+ <span class="math">
+  \(\text{\ref{eq:demag_jackson}}\)
+ </span>
+ can be obtained by applying Green’s theorem
+</p>
+<p>
+ <span class="math">
+  \[{u_{}(\boldsymbol{r})} =
+  \frac{1}{4 \pi} 
+  \int_\Omega {\boldsymbol{M}_{}(\boldsymbol{r}')} \cdot \boldsymbol{\nabla}' \frac{1}{|\boldsymbol{r} - \boldsymbol{r}'|} \,\text{d}\boldsymbol{r}'.
+  \label{eq:demag_potential_convolution}\]
+ </span>
+</p>
+<p>
+ The demagnetization field
+ <span class="math">
+  \(\boldsymbol{H}_{\text{demag}}\)
+ </span>
+ is calculated as negative gradient of the potential
+ <span class="math">
+  \(u\)
+ </span>
+ with respect to
+ <span class="math">
+  \(\boldsymbol{r}\)
+ </span>
+</p>
+<p>
+ <span class="math">
+  \[{\boldsymbol{H}_{\text{demag}}(\boldsymbol{r})} =
+  - \boldsymbol{\nabla}{u_{}(\boldsymbol{r})} =
+  \int_\Omega \boldsymbol{\widetilde{N}}(\boldsymbol{r} - \boldsymbol{r}') {\boldsymbol{M}_{}(\boldsymbol{r}')} \,\text{d}\boldsymbol{r}' \label{eq:demag_field}\]
+ </span>
+</p>
+<p>
+ with the so-called demagnetization tensor
+ <span class="math">
+  \(\boldsymbol{\widetilde{N}}\)
+ </span>
+ given by
+</p>
+<p>
+ <span class="math">
+  \[\boldsymbol{\widetilde{N}}(\boldsymbol{r} - \boldsymbol{r}') = - \frac{1}{4 \pi} \boldsymbol{\nabla}\boldsymbol{\nabla}' \frac{1}{|\boldsymbol{r} - \boldsymbol{r}'|}.\]
+ </span>
+</p>
+<p>
+ According to classical electrodynamics the energy is given by
+</p>
+<p>
+ <span class="math">
+  \begin{align}
+  E &amp;= - \frac{\mu_0}{2} \int_\Omega \boldsymbol{M} \cdot \boldsymbol{H}_{\text{demag}} \,\text{d}\boldsymbol{r}\label{eq:demag_energy}\\
+  &amp;= - \frac{\mu_0}{2} \int \!\!\!\! \int_\Omega {\boldsymbol{M}_{}(\boldsymbol{r})} \boldsymbol{\widetilde{N}}(\boldsymbol{r} - \boldsymbol{r}') {\boldsymbol{M}_{}(\boldsymbol{r}')} \,\text{d}\boldsymbol{r}\,\text{d}\boldsymbol{r}'\end{align}
+ </span>
+</p>
+<p>
+ where the factor
+ <span class="math">
+  \(1/2\)
+ </span>
+ accounts for the fact that the field is generated by the magnetization itself. Due to the integration over
+ <span class="math">
+  \(\boldsymbol{r}\)
+ </span>
+ and
+ <span class="math">
+  \(\boldsymbol{r}'\)
+ </span>
+ every dipole–dipole interaction between
+ <span class="math">
+  \({\boldsymbol{M}_{}(\boldsymbol{r})}\)
+ </span>
+ and
+ <span class="math">
+  \({\boldsymbol{M}_{}(\boldsymbol{r}')}\)
+ </span>
+ contributes twice to the result, which is corrected by this prefactor.
+</p>
+<h3 id="sec-energetics-anisotropy">
+ <span class="header-section-number">
+  0.2.3
+ </span>
+ Anisotropy Energy
+</h3>
+<p>
+ Depending on the crystal structure of a ferromagnetic material, it energetically favors the alignment of the magnetization parallel to certain axes. This energy contribution results from spin-orbit interactions
+ <span class="citation" data-cites="hubert_1998">
+  Hubert and Schäfer (1998)
+ </span>
+ and is referred to as anisotropy energy. The energetically favored axes are called easy axes. These axes are undirected which means that a local minimum of the energy at
+ <span class="math">
+  \(\boldsymbol{m}_{\text{min}}\)
+ </span>
+ implies a local minimum at
+ <span class="math">
+  \(-\boldsymbol{m}_{\text{min}}\)
+ </span>
+ with
+</p>
+<p>
+ <span class="math">
+  \[E(\boldsymbol{m}_{\text{min}}) = E(-\boldsymbol{m}_{\text{min}})
+  \label{eq:aniso_symmetry}\]
+ </span>
+</p>
+<p>
+ Depending on the lattice structure, a material may have one or more of these easy axes. In the simplest case a material has a single easy axis. This uniaxial anisotropy energy is given by
+</p>
+<p>
+ <span class="math">
+  \[E = - \int_\Omega [
+    K_{\text{u1}} ( \boldsymbol{m} \cdot \boldsymbol{e}_{\text{u}} )^2
+  + K_{\text{u2}} ( \boldsymbol{m} \cdot \boldsymbol{e}_{\text{u}} )^4
+  ] \,\text{d}\boldsymbol{r}\label{eq:aniso_uniaxial}\]
+ </span>
+</p>
+<p>
+ where
+ <span class="math">
+  \(\boldsymbol{e}_{\text{u}}\)
+ </span>
+ is a unit vector pointing in the direction of the easy axis and
+ <span class="math">
+  \(K_{\text{u1}}\)
+ </span>
+ and
+ <span class="math">
+  \(K_{\text{u2}}\)
+ </span>
+ are called anisotropy constants. This phenomenological expression is the result of a Taylor expansion up to fourth order. Only even powers are considered in order to fullfill the symmetry condition
+ <span class="math">
+  \(\text{\ref{eq:aniso_symmetry}}\)
+ </span>
+ . Uniaxial anisotropy occurs in materials with a hexagonal or tetragonal crystal structure, e.g. cobalt.
+</p>
+<p>
+ Materials with a cube-symmetric lattice structure naturally feature three easy axes
+ <span class="math">
+  \(\boldsymbol{e}_i\)
+ </span>
+ which are pairwise orthogonal
+</p>
+<p>
+ <span class="math">
+  \[\boldsymbol{e}_i \cdot \boldsymbol{e}_j = \delta_{ij}.\]
+ </span>
+</p>
+<p>
+ The energy of such a cubic anisotropy is the result of an expansion in the magnetization components along the easy axes
+</p>
+<p>
+ <span class="math">
+  \[E = \int_\Omega [
+    K_{\text{c1}} (m_1^2 m_2^2 + m_2^2 m_3^2 + m_3^2 m_1^2)
+  + K_{\text{c2}} m_1^2 m_2^2 m_3^2
+  ] \,\text{d}\boldsymbol{r}\label{eq:aniso_cubic}\]
+ </span>
+</p>
+<p>
+ where
+ <span class="math">
+  \(m_i = \boldsymbol{e}_i\cdot\boldsymbol{m}\)
+ </span>
+ is the magnetization component in direction of the anisotropy axis
+ <span class="math">
+  \(\boldsymbol{e}_i\)
+ </span>
+ . Again terms which violate the symmetry condition
+ <span class="math">
+  \(\text{\ref{eq:aniso_symmetry}}\)
+ </span>
+ are neglected. Moreover, only contributions which are constant under permutation of magnetization components
+ <span class="math">
+  \(m_i\)
+ </span>
+ are considered in order to comply with the cubic symmetry. Cubic anisotropy occurs in materials such as iron which has a body-centered cubic structure or nickel which has a face-centered cubic structure.
+</p>
+<p>
+ Although the expressions for the anisotropy energy in Eqn.
+ <span class="math">
+  \(\text{\ref{eq:aniso_uniaxial}}\)
+ </span>
+ and
+ <span class="math">
+  \(\text{\ref{eq:aniso_cubic}}\)
+ </span>
+ have a pure phenomenological origin, they are able to describe anisotropy effects with a high accuracy. In practical applications the energy expressions are often reduced to the lowest order term.
+</p>
+<h3 id="sec-energetics-zeeman">
+ <span class="header-section-number">
+  0.2.4
+ </span>
+ Zeeman Energy
+</h3>
+<p>
+ The Zeeman energy of a ferromagnetic body is the energy of the magnetization in an external field
+ <span class="math">
+  \(\boldsymbol{H}_{\text{zeeman}}\)
+ </span>
+ given by
+</p>
+<p>
+ <span class="math">
+  \[E = - \mu_0 \int_\Omega \boldsymbol{M} \cdot \boldsymbol{H}_{\text{zeeman}} \,\text{d}\boldsymbol{r}.\]
+ </span>
+</p>
+<h2 id="sec-llg">
+ <span class="header-section-number">
+  0.3
+ </span>
+ Landau-Lifshitz-Gilbert Equation
+</h2>
+<p>
+ The central equation in micromagnetism for the description of magnetization dynamics is the Landau-Lifshitz-Gilbert equation, which was originally proposed in
+ <span class="citation" data-cites="landau_1935">
+  Landau and Lifshitz (1935)
+ </span>
+ . In this work from 1935 by Landau and Lifshitz the motion of the magnetization is described by a precessional term and a damping term. While the precessional term is physically derived in this work, the damping term is purely phenomenological. In 1955 Gilbert derived an equivalent expression for the Landau-Lifshitz-Gilbert equation from a Lagrangian formulation, where the damping is treated more strictly, see
+ <span class="citation" data-cites="gilbert_1955">
+  Gilbert (1955)
+ </span>
+ and
+ <span class="citation" data-cites="gilbert_2004">
+  Gilbert (2004)
+ </span>
+ .
+</p>
+<p>
+ In the following a classical Lagrangian method as well as a quantum mechanical approach are presented briefly to derive the Landau-Lifshitz-Gilbert equation. Both approaches give insight to different aspects of the micromagnetic model and are thus of interest for the application of this theory.
+</p>
+<h3 id="sec-llg-lagrange">
+ <span class="header-section-number">
+  0.3.1
+ </span>
+ Lagrange Approach
+</h3>
+<p>
+ With an appropriate Lagrange functional the Landau-Lifshitz-Gilbert equation can be obtained by the Lagrangian formalism. Since the magnetization
+ <span class="math">
+  \(\boldsymbol{M}\)
+ </span>
+ is assumed to be normalized, see Eqn.
+ <span class="math">
+  \(\text{\ref{eq:normalized_magnetization}}\)
+ </span>
+ , its motion may locally be well described by the rotation of a rigid body. The angular velocity of a rigid body in terms of the Euler angles reads
+</p>
+<p>
+ <span class="math">
+  \[\boldsymbol{\Omega} = \begin{pmatrix}
+    \dot{\phi} \sin(\theta) \sin(\psi) + \dot{\theta} \cos(\psi) \\
+    \dot{\phi} \sin(\theta) \cos(\psi) + \dot{\theta} \sin(\psi) \\
+    \dot{\phi} \cos(\theta) + \dot{\psi}
+  \end{pmatrix}
+  \label{eq:llg_euler}\]
+ </span>
+</p>
+<p>
+ where the shorthand notation
+ <span class="math">
+  \(\dot{f} = \partial_t f\)
+ </span>
+ is used. Note that the angular velocity
+ <span class="math">
+  \(\boldsymbol{\Omega}\)
+ </span>
+ as well as the angles
+ <span class="math">
+  \(\theta\)
+ </span>
+ ,
+ <span class="math">
+  \(\phi\)
+ </span>
+ and
+ <span class="math">
+  \(\psi\)
+ </span>
+ have to depend on the location
+ <span class="math">
+  \(\boldsymbol{r}\)
+ </span>
+ in order to describe the magnetization field
+ <span class="math">
+  \({\boldsymbol{m}_{}(\boldsymbol{r})}\)
+ </span>
+ . Without loss of generality the rotation axes can be chosen such that the
+ <span class="math">
+  \(r_3\)
+ </span>
+ -axis points into the direction of the magnetization in every point and thus
+</p>
+<p>
+ <span class="math">
+  \[\boldsymbol{m} = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}.\]
+ </span>
+</p>
+<p>
+ In the rigid-body picture the magnetization is described by a rotationally symmetric stick. Since the angle
+ <span class="math">
+  \(\psi\)
+ </span>
+ describes the rotation of the stick around its symmetry axis it may be set to
+ <span class="math">
+  \(\psi = 0\)
+ </span>
+ without loss of generality
+ <span class="citation" data-cites="landau_mechanics">
+  Landau and Lifshitz (1969)
+ </span>
+ . Thus Eqn.
+ <span class="math">
+  \(\text{\ref{eq:llg_euler}}\)
+ </span>
+ reduces to
+</p>
+<p>
+ <span class="math">
+  \[\boldsymbol{\Omega} = \begin{pmatrix}
+    \dot{\theta} \\
+    \dot{\phi} \sin(\theta) \\
+    \dot{\phi} \cos(\theta) + \dot{\psi}
+  \end{pmatrix}.\]
+ </span>
+</p>
+<p>
+ The Lagrangian of a dynamical system in general is given by
+</p>
+<p>
+ <span class="math">
+  \[\mathcal{L} = T(\boldsymbol{q}, \dot{\boldsymbol{q}}) - V(\boldsymbol{q})\]
+ </span>
+</p>
+<p>
+ where
+ <span class="math">
+  \(T\)
+ </span>
+ is the kinetic energy and
+ <span class="math">
+  \(V\)
+ </span>
+ is the potential energy of the system and
+ <span class="math">
+  \(\boldsymbol{q}\)
+ </span>
+ and
+ <span class="math">
+  \(\dot{\boldsymbol{q}}\)
+ </span>
+ are the generalized coordinates and their time derivatives respectively. In micromagnetics the potential energy is given by the energy contributions discussed in Sec. <a href="#sec-energetics">0.2</a>. The kinetic energy however has no classical explanation since the magnetization does not have inertia in the classical sense. In
+ <span class="citation" data-cites="gilbert_1955">
+  Gilbert (1955)
+ </span>
+ Gilbert proposed the Lagrangian
+</p>
+<p>
+ <span class="math">
+  \[\mathcal{L} = - \frac{M_{\text{s}}}{\gamma} \dot{\phi} \cos(\theta) - U(\theta, \phi).
+  \label{eq:llg_lagrangian}\]
+ </span>
+</p>
+<p>
+ As shown by Wegrowe et al. in
+ <span class="citation" data-cites="wegrowe_2012">
+  Wegrowe and Ciornei (2012)
+ </span>
+ this expression is equivalent to
+</p>
+<p>
+ <span class="math">
+  \begin{align}
+  \mathcal{L} &amp;= \frac{1}{2} I [\dot{\phi} \cos(\theta) + \dot{\psi}]^2 - U(\theta, \phi) \\
+              &amp;= \frac{1}{2} I \Omega_3^2 - U(\theta, \phi)
+  \label{eq:llg_lagrangian_wegrowe}\end{align}
+ </span>
+</p>
+<p>
+ which describes a classical rotation energy with
+ <span class="math">
+  \(I\)
+ </span>
+ being the moment of inertia. However, in this energy only the rotation around the symmetry axis of the magnetization is considered. From a classical point of view it is not clear why
+ <span class="math">
+  \(\Omega_1\)
+ </span>
+ and
+ <span class="math">
+  \(\Omega_2\)
+ </span>
+ may be neglected. In
+ <span class="citation" data-cites="wegrowe_2012">
+  Wegrowe and Ciornei (2012)
+ </span>
+ this choice of
+ <span class="math">
+  \(\mathcal{L}\)
+ </span>
+ is discussed in detail.
+</p>
+<p>
+ In the following we will stick with the Lagrangian
+ <span class="math">
+  \(\text{\ref{eq:llg_lagrangian}}\)
+ </span>
+ as proposed by Gilbert. According to the Lagrangian formulation, the equation of motion in terms of the generalized coordinates
+ <span class="math">
+  \(\boldsymbol{q} = (\theta, \phi)\)
+ </span>
+ is given by
+</p>
+<p>
+ <span class="math">
+  \[\frac{\text{d}}{\text{d}t} \frac{\delta \mathcal{L}}{\delta \dot{q_i}} - \frac{\delta \mathcal{L}}{\delta q_i} + \frac{\delta D}{\delta \dot{q_i}} = 0
+  \label{eq:llg_lagrange_formulation}\]
+ </span>
+</p>
+<p>
+ where
+ <span class="math">
+  \(\delta  / \delta f\)
+ </span>
+ denotes a functional derivative and
+ <span class="math">
+  \(D\)
+ </span>
+ is an additional dissipative Rayleigh function that accounts for energy losses of the system. Inserting Eqn.
+ <span class="math">
+  \(\text{\ref{eq:llg_lagrangian}}\)
+ </span>
+ into Eqn.
+ <span class="math">
+  \(\text{\ref{eq:llg_lagrange_formulation}}\)
+ </span>
+ yields
+</p>
+<p>
+ <span class="math">
+  \begin{align}
+  \dot{\phi} \sin(\theta) &amp;= \frac{\gamma}{M_{\text{s}}} \left[ \frac{\delta U}{\delta \theta} + \frac{\delta D}{\delta \dot{\theta}} \right]
+  \label{eq:llg_lagrange_result_1} \\
+  \dot{\theta} &amp;= - \frac{\gamma}{M_{\text{s}} \sin(\theta)} \left[ \frac{\delta U}{\delta \phi} + \frac{\delta D}{\delta \dot{\phi}} \right].
+  \label{eq:llg_lagrange_result_2}\end{align}
+ </span>
+</p>
+<p>
+ These equations of motion describe the dynamics of the magnetization by the Euler angles
+ <span class="math">
+  \({\phi_{}(\boldsymbol{r})}\)
+ </span>
+ and
+ <span class="math">
+  \({\theta_{}(\boldsymbol{r})}\)
+ </span>
+ . In order to obtain a description in cartesian coordinates, the time derivative of the magnetization in cartesian coordinates is considered
+</p>
+<p>
+ <span class="math">
+  \[\partial_t \boldsymbol{m} = \boldsymbol{\Omega} \times \boldsymbol{m} = \begin{pmatrix}
+    \dot{\phi} \sin(\theta) \\ - \dot{\theta} \\ 0
+  \end{pmatrix}.
+  \label{eq:llg_rotating_frame}\]
+ </span>
+</p>
+<p>
+ Furthermore, since the magnetization is a unit vector field
+ <span class="math">
+  \(|\boldsymbol{m}| = 1\)
+ </span>
+ , variations of the Euler angles
+ <span class="math">
+  \(\phi\)
+ </span>
+ and
+ <span class="math">
+  \(\theta\)
+ </span>
+ are given by
+</p>
+<p>
+ <span class="math">
+  \begin{align}
+  \delta m_1 &amp;= \sin(\theta) \delta \phi \\
+  \delta m_2 &amp;= \delta \theta.\end{align}
+ </span>
+</p>
+<p>
+ Hence Eqn.
+ <span class="math">
+  \(\text{\ref{eq:llg_lagrange_result_1}}\)
+ </span>
+ and
+ <span class="math">
+  \(\text{\ref{eq:llg_lagrange_result_2}}\)
+ </span>
+ can be written as
+</p>
+<p>
+ <span class="math">
+  \begin{align}
+  \partial_t m_1 &amp;= \frac{\gamma}{M_{\text{s}}} \left[ \frac{\delta U}{\delta m_2} + \frac{\delta D}{\delta \dot{m_2}} \right] \\
+  \partial_t m_2 &amp;= - \frac{\gamma}{M_{\text{s}}} \left[ \frac{\delta U}{\delta m_1} + \frac{\delta D}{\delta \dot{m_1}} \right]\end{align}
+ </span>
+</p>
+<p>
+ or equivalently
+</p>
+<p>
+ <span class="math">
+  \[\partial_t \boldsymbol{m} = - \frac{\gamma}{M_{\text{s}}} \boldsymbol{m} \times \left(
+  \frac{\delta U}{\delta \boldsymbol{m}} + \frac{\delta D}{\delta \dot{\boldsymbol{m}}}
+  \right).\]
+ </span>
+</p>
+<p>
+ Choosing the reasonable dissipative function
+ <span class="math">
+  \(D = \alpha^\ast (\partial_t \boldsymbol{m})^2\)
+ </span>
+ with
+ <span class="math">
+  \(\alpha^\ast \geq 0\)
+ </span>
+ results in the Landau-Lifshitz-Gilbert equation
+</p>
+<p>
+ <span class="math">
+  \[\partial_t \boldsymbol{m} = - \gamma (\boldsymbol{m} \times \boldsymbol{H}_{\text{eff}}) + \alpha (\boldsymbol{m} \times \partial_t \boldsymbol{m})
+  \label{eq:llg_implicit}\]
+ </span>
+</p>
+<p>
+ where
+ <span class="math">
+  \(\boldsymbol{H}_{\text{eff}}\)
+ </span>
+ is the so-called effective field given by
+</p>
+<p>
+ <span class="math">
+  \[\boldsymbol{H}_{\text{eff}} = - \frac{1}{\mu_0 M_{\text{s}}} \frac{\delta U}{\delta \boldsymbol{m}}.
+  \label{eq:llg_effective_field}\]
+ </span>
+</p>
+<p>
+ and
+ <span class="math">
+  \(\alpha \geq 0\)
+ </span>
+ is a damping constant.
+</p>
+<h3 id="sec-llg-qm">
+ <span class="header-section-number">
+  0.3.2
+ </span>
+ Quantum Mechanical Approach
+</h3>
+<p>
+ In Sec. <a href="#sec-llg-lagrange">0.3.1</a> it is shown that the Landau-Lifshitz-Gilbert equation can be obtained by application of the classical Lagrange formalism. However, this method is based on a particular choice of the Lagrangian, which is not completely justifiable by classical theory.
+</p>
+<p>
+ In this section a quantum mechanical approach is discussed to derive the Landau-Lifshitz-Gilbert equation. As described in Sec. <a href="#sec-assumptions">0.1</a> the continuous magnetization field approximates a discrete distribution of spins. In quantum mechanics the components of the spin are described by the spin operators
+ <span class="math">
+  \(\hat{S}_i\)
+ </span>
+ . In the Heisenberg picture the time development of the spin operators are given by
+</p>
+<p>
+ <span class="math">
+  \[\frac{\text{d}\hat{S}_j}{\text{d}t} =
+  \frac{1}{i \hbar} \left[ \hat{S}_j, \hat{H} \right].
+  \label{eq:llg_qm_heisenberg}\]
+ </span>
+</p>
+<p>
+ The contributions to the Hamiltonian in the context of micromagnetics will depend on the spin. Thus it is reasonable to expand the Hamiltonian in the spin operators
+</p>
+<p>
+ <span class="math">
+  \begin{align}
+  \left[ \hat{S}_j, \hat{H} \right] &amp;= \sum_k \frac{\partial \hat{H}}{\partial \hat{S}_k} \left[ \hat{S}_k, \hat{S}_j \right] + \mathcal{O}(\hbar^2) \notag \\
+                                  &amp;= i \hbar \sum_{k,l} \frac{\partial \hat{H}}{\partial \hat{S}_k} \epsilon_{jkl} \hat{S}_l + \mathcal{O}(\hbar^2).\end{align}
+ </span>
+</p>
+<p>
+ Inserting into Eqn.
+ <span class="math">
+  \(\text{\ref{eq:llg_qm_heisenberg}}\)
+ </span>
+ and using the vector notation
+ <span class="math">
+  \(\hat{\boldsymbol{S}} = (\hat{S}_1, \hat{S}_2, \hat{S}_3)\)
+ </span>
+ yields
+</p>
+<p>
+ <span class="math">
+  \[\frac{\text{d}\hat{\boldsymbol{S}}}{\text{d}t} = - \hat{\boldsymbol{S}} \times \frac{\partial \hat{H}}{\partial \hat{\boldsymbol{S}}} + \mathcal{O}(\hbar).\]
+ </span>
+</p>
+<p>
+ In the classical limit the spin operators may be replaced by the continuous magnetization vector
+ <span class="math">
+  \(\boldsymbol{M} = M_{\text{s}} \boldsymbol{m}\)
+ </span>
+ . Further the second term can be neglected since
+ <span class="math">
+  \(\hbar \rightarrow 0\)
+ </span>
+ . Identifying
+ <span class="math">
+  \(\partial \hat{H} / \partial \hat{\boldsymbol{S}}\)
+ </span>
+ with the effective field
+ <span class="math">
+  \(\boldsymbol{H}_{\text{eff}}\)
+ </span>
+ in Eqn.
+ <span class="math">
+  \(\text{\ref{eq:llg_effective_field}}\)
+ </span>
+ leads to
+</p>
+<p>
+ <span class="math">
+  \[\partial_t \boldsymbol{m} = - \gamma' (\boldsymbol{m} \times \boldsymbol{H}_{\text{eff}}).\]
+ </span>
+</p>
+<p>
+ This equation describes the precession of the magnetization around the effective field without any loss of energy. According to the original work of Landau and Lifshitz
+ <span class="citation" data-cites="landau_1935">
+  Landau and Lifshitz (1935)
+ </span>
+ a phenomenological damping term is added in order to account for these losses. This damping term is constructed such that it is perpendicular to the precessional term. Further it should conserve the magnetization norm leading to
+</p>
+<p>
+ <span class="math">
+  \[\partial_t \boldsymbol{m} = - \gamma' (\boldsymbol{m} \times \boldsymbol{H}_{\text{eff}}) - \alpha' \boldsymbol{m} \times (\boldsymbol{m} \times \boldsymbol{H}_{\text{eff}}).
+  \label{eq:llg_explicit}\]
+ </span>
+</p>
+<p>
+ This is the explicit form of the Landau-Lifshitz-Gilbert equation. It can be shown that this form is equivalent to the implicit form in Eqn.
+ <span class="math">
+  \(\text{\ref{eq:llg_implicit}}\)
+ </span>
+ . This is done by inserting Eqn.
+ <span class="math">
+  \(\text{\ref{eq:llg_implicit}}\)
+ </span>
+ for
+ <span class="math">
+  \(\partial_t \boldsymbol{m}\)
+ </span>
+ on the right-hand side of Eqn.
+ <span class="math">
+  \(\text{\ref{eq:llg_implicit}}\)
+ </span>
+ and using the vector identity
+ <span class="math">
+  \(\boldsymbol{a} \times (\boldsymbol{b} \times \boldsymbol{c}) = (\boldsymbol{a} \cdot \boldsymbol{c}) \boldsymbol{b} - (\boldsymbol{a} \cdot \boldsymbol{b}) \boldsymbol{c}\)
+ </span>
+ . The coefficients of the different versions of the Landau-Lifshitz-Gilbert equation satisfy the relations
+</p>
+<p>
+ <span class="math">
+  \begin{align}
+  \gamma' &amp;= \gamma / (1 + \alpha^2) \\
+  \alpha' &amp;= \alpha \gamma / (1 + \alpha^2).\end{align}
+ </span>
+</p>
+<p>
+ A full quantum mechanical description of a spin subject to exchange interaction, anisotropy and Zeeman field is given in
+ <span class="citation" data-cites="bode_2012">
+  Bode et al. (2012)
+ </span>
+ where the Landau-Lifshitz-Gilbert equation is also obtained in a limit case.
+</p>
+<h3 id="sec-effective-field">
+ <span class="header-section-number">
+  0.3.3
+ </span>
+ Effective Field
+</h3>
+<p id="fig-llg">
+ <img alt=" Time evolution of a single magnetic moment as described by the Landau-Lifshitz-Gilbert equation. The motion can be divided into a precessional and a damping part. (a) Precessional motion around the effective field. (b) Damped motion. The magnetization relaxes towards the effective field. (c) Resulting motion including precession and damping. " src="/images/llg.svg"/>
+ <div class="caption">
+  <span class="label">
+   Figure 2:
+  </span>
+  Time evolution of a single magnetic moment as described by the Landau-Lifshitz-Gilbert equation. The motion can be divided into a precessional and a damping part. (a) Precessional motion around the effective field. (b) Damped motion. The magnetization relaxes towards the effective field. (c) Resulting motion including precession and damping.
+ </div>
+</p>
+<p>
+ The Landau-Lifshitz-Gilbert equation describes the motion of the magnetization in an effective field defined by Eqn.
+ <span class="math">
+  \(\text{\ref{eq:llg_effective_field}}\)
+ </span>
+ . This motion can be described as the sum of a precessional term and a damping term. Figure <a href="#fig-llg">2</a> illustrates these two terms for the explicit formulation of the Landau-Lifshitz-Gilbert equation
+ <span class="math">
+  \(\text{\ref{eq:llg_explicit}}\)
+ </span>
+ .
+</p>
+<p>
+ In the case of the Zeeman energy and the demagnetization energy, the effective field is an actual field in the classical sense. The Zeeman field is directly given by
+ <span class="math">
+  \(\boldsymbol{H}_{\text{zeeman}}\)
+ </span>
+ , the demagnetization field is computed via Eqn.
+ <span class="math">
+  \(\text{\ref{eq:demag_field}}\)
+ </span>
+ .
+</p>
+<p>
+ However, the exchange field as well as the anisotropy field have to be calculated via the variational derivative in Eqn.
+ <span class="math">
+  \(\text{\ref{eq:llg_effective_field}}\)
+ </span>
+ . The exchange energy density is given by the integrand of Eqn.
+ <span class="math">
+  \(\text{\ref{eq:exchange_continuous_final}}\)
+ </span>
+ . Applying the chain rule of variational calculus yields
+</p>
+<p>
+ <span class="math">
+  \begin{align}
+  {\boldsymbol{H}_{\text{ex}}(\boldsymbol{r})}
+  &amp;= - \frac{A}{\mu_0 M_{\text{s}}} \frac{\delta }{\delta \boldsymbol{m}} (\boldsymbol{\nabla}\boldsymbol{m})^2 \\
+  &amp;= \frac{2 A}{\mu_0 M_{\text{s}}} \Delta \boldsymbol{m}
+  \label{eq:effective_field_exchange}\end{align}
+ </span>
+</p>
+<p>
+ Analogously the effective fields for uniaxial and cubic anisotropy are obtained by computing the variational derivative of Eqn.
+ <span class="math">
+  \(\text{\ref{eq:aniso_uniaxial}}\)
+ </span>
+ and
+ <span class="math">
+  \(\text{\ref{eq:aniso_cubic}}\)
+ </span>
+ respectively
+</p>
+<p>
+ <span class="math">
+  \begin{align}
+  {\boldsymbol{H}_{\text{u}}(\boldsymbol{r})} &amp;= \frac{2 K_{\text{u1}}}{\mu_0 M_{\text{s}}} \boldsymbol{e}_{\text{u}} (\boldsymbol{e}_{\text{u}} \cdot \boldsymbol{m})
+                       + \frac{4 K_{\text{u2}}}{\mu_0 M_{\text{s}}} \boldsymbol{e}_{\text{u}} (\boldsymbol{e}_{\text{u}} \cdot \boldsymbol{m})^3 \\
+  {\boldsymbol{H}_{\text{c}}(\boldsymbol{r})} &amp;= - \frac{2 K_{\text{c1}}}{\mu_0 M_{\text{s}}}
+                       \begin{pmatrix} m_1 m_2^2 + m_1 m_3^2 \\ m_2 m_3^2 + m_2 m_1^2 \\ m_3 m_1^2 + m_3 m_2^2 \end{pmatrix}
+                       - \frac{2 K_{\text{c2}}}{\mu_0 M_{\text{s}}}
+                       \begin{pmatrix} m_1   m_2^2 m_3^2 \\ m_1^2 m_2   m_3^2 \\ m_1^2 m_2^2 m_3 \end{pmatrix}.\end{align}
+ </span>
+</p>
+<h3 id="boundary-conditions">
+ <span class="header-section-number">
+  0.3.4
+ </span>
+ Boundary Conditions
+</h3>
+<p id="fig-boundary-sketch">
+ <img alt=" A so-called Gaussian pillbox \Omega_{\text{p}} on the outer boundary of the sample \Omega. The discontinuity of the magnetization \boldsymbol{m} across the sample boundary \partial \Omega is smoothed out within the pillbox, as sketched on the right-hand side. Properties of the discontinuous system are obtained by considering the limit d \rightarrow 0. " src="/images/boundary_limit.svg"/>
+ <div class="caption">
+  <span class="label">
+   Figure 3:
+  </span>
+  A so-called Gaussian pillbox \Omega_{\text{p}} on the outer boundary of the sample \Omega. The discontinuity of the magnetization \boldsymbol{m} across the sample boundary \partial \Omega is smoothed out within the pillbox, as sketched on the right-hand side. Properties of the discontinuous system are obtained by considering the limit d \rightarrow 0.
+ </div>
+</p>
+<p>
+ Due to the first derivate in time the Landau-Lifshitz-Gilbert equation is an initial value problem. In order to find a solution
+ <span class="math">
+  \(\boldsymbol{m}(\boldsymbol{r}, t)\)
+ </span>
+ for
+ <span class="math">
+  \(t &gt; t_0\)
+ </span>
+ the initial magnetization
+ <span class="math">
+  \(\boldsymbol{m}(\boldsymbol{r}, t_0)\)
+ </span>
+ has to be known.
+</p>
+<p>
+ Depending on the effective field, additional boundary conditions are required in order to find a unique solution of the Landau-Lifshitz-Gilbert equation. In fact, even with given boundary conditions the uniqueness of solutions to the Landau-Lifshitz-Gilbert equation could only be shown for special cases, see
+ <span class="citation" data-cites="carbou_2001a carbou_2001b alouges_1992">
+  Carbou and Fabrie (2001a; Carbou and Fabrie 2001b; Alouges and Soyeur 1992)
+ </span>
+ . From the effective field contribution discussed in Sec. <a href="#sec-effective-field">0.3.3</a>, the exchange field is the only one that adds the need of boundary conditions due to its second order in space.
+</p>
+<p>
+ If this so-called exchange boundary condition is applied on the boundary of an ideal magnetic body, i.e. a boundary where the magnetization rapidly drops to zero, it is uniquely defined. Consider the Landau-Lifshitz-Gilbert equation without damping and with the exchange field as effective field.
+</p>
+<p>
+ <span class="math">
+  \[\partial_t \boldsymbol{m} = - \gamma \boldsymbol{m} \times \Delta \boldsymbol{m}.
+  \label{eq:llg_boundary_llg}\]
+ </span>
+</p>
+<p>
+ Since at the boundary of an ideal magnetic body the Laplacian of the magnetization
+ <span class="math">
+  \(\Delta \boldsymbol{m}\)
+ </span>
+ is not defined, a limiting procedure is used to obtain the boundary condition. Like in Sec. <a href="#sec-energetics-demag">0.2.2</a> the magnetization is considered to decay continuously in a finite interval
+ <span class="math">
+  \(d\)
+ </span>
+ . Equation
+ <span class="math">
+  \(\text{\ref{eq:llg_boundary_llg}}\)
+ </span>
+ is integrated over a so-called Gaussian pillbox as sketched in Fig. <a href="#fig-boundary-sketch">3</a>. Application of Green’s theorem yields
+</p>
+<p>
+ <span class="math">
+  \begin{align}
+  \int_{\Omega_{\text{p}}} \partial_t m_i \,\text{d}\boldsymbol{r}&amp;= \int_{\Omega_{\text{p}}} \epsilon_{ijk} m_j \Delta m_k \,\text{d}\boldsymbol{r}\label{eq:llg_boundary_green_1} \\
+  &amp;= \int_{\partial \Omega_{\text{p}}} \epsilon_{ijk} m_j \frac{\partial m_k}{\partial \boldsymbol{n}} \,\text{d}\boldsymbol{r}-  \int_{\Omega_{\text{p}}} \epsilon_{ijk} \boldsymbol{\nabla}m_j \cdot \boldsymbol{\nabla}m_k \,\text{d}\boldsymbol{r}.
+  \label{eq:llg_boundary_green_2}\end{align}
+ </span>
+</p>
+<p>
+ The second integral on the right-hand side of Eqn.
+ <span class="math">
+  \(\text{\ref{eq:llg_boundary_green_2}}\)
+ </span>
+ vanishes due to the skew-symmetric Levi-Civita tensor
+ <span class="math">
+  \(\epsilon\)
+ </span>
+ . The boundary of the pillbox
+ <span class="math">
+  \(\partial \Omega_{\text{p}}\)
+ </span>
+ coincides with the boundary of the magnetic body
+ <span class="math">
+  \(\Omega\)
+ </span>
+ on one side except for the orientation. The other side of the pillbox is outside the magnetic body where
+ <span class="math">
+  \(|\boldsymbol{m}| = 0\)
+ </span>
+ . Hence Eqn.
+ <span class="math">
+  \(\text{\ref{eq:llg_boundary_green_2}}\)
+ </span>
+ reads
+</p>
+<p>
+ <span class="math">
+  \[\int_{\Omega_{\text{p}}} \partial_t m \,\text{d}\boldsymbol{r}= - \int_{\partial_\Omega} \boldsymbol{m} \times \frac{\partial \boldsymbol{m}}{\partial \boldsymbol{n}} \,\text{d}\boldsymbol{r}\]
+ </span>
+</p>
+<p>
+ In the limit
+ <span class="math">
+  \(d \rightarrow 0\)
+ </span>
+ the volume integral on the left-hand-side of Eqn.
+ <span class="math">
+  \(\text{\ref{eq:llg_boundary_green_1}}\)
+ </span>
+ vanishes. Since the faces of the pill box can be chosen arbitrarily the boundary condition
+</p>
+<p>
+ <span class="math">
+  \[\boldsymbol{m} \times \frac{\partial \boldsymbol{m}}{\partial \boldsymbol{n}} = 0\]
+ </span>
+</p>
+<p>
+ must hold in every boundary point. Further since
+ <span class="math">
+  \(|\boldsymbol{m}|=1\)
+ </span>
+ the normal derivative of the magnetization is perpendicular to the magnetization in every point
+ <span class="math">
+  \(\partial \boldsymbol{m} / \partial \boldsymbol{n} \perp \boldsymbol{m}\)
+ </span>
+ and thus
+</p>
+<p>
+ <span class="math">
+  \[\frac{\partial \boldsymbol{m}}{\partial \boldsymbol{n}} = 0.
+  \label{eq:exchange_boundary_condition}\]
+ </span>
+</p>
+<p>
+ This is the so-called exchange boundary condition, which is the right choice if the boundary of the computational domain
+ <span class="math">
+  \(\Omega\)
+ </span>
+ coincides with the boundary of an ideal magnet as shown above. Equation
+ <span class="math">
+  \(\text{\ref{eq:exchange_boundary_condition}}\)
+ </span>
+ was originally derived by Rado and Weertman in
+ <span class="citation" data-cites="rado_1959">
+  Rado and Weertman (1959)
+ </span>
+ . Before, it was shown by Brown that the same boundary condition has to hold in energetic equilibrium
+ <span class="citation" data-cites="brown_1963">
+  <span>
+   Brown Jr.
+  </span>
+  (1963)
+ </span>
+ . Depending on further contributions to the effective field, such as surface anisotropy, this boundary condition changes accordingly, see
+ <span class="citation" data-cites="hubert_1998">
+  Hubert and Schäfer (1998)
+ </span>
+ .
+</p>
+<h3 id="sec-llg-properties">
+ <span class="header-section-number">
+  0.3.5
+ </span>
+ Properties of the Landau-Lifshitz-Gilbert Equation
+</h3>
+<h4 id="preservation-of-modulus">
+ <span class="header-section-number">
+  0.3.5.1
+ </span>
+ Preservation of Modulus
+</h4>
+<p>
+ As mentioned in Sec. <a href="#sec-assumptions">0.1</a> the magnetization
+ <span class="math">
+  \(\boldsymbol{m}\)
+ </span>
+ is assumed to be normalized everywhere. This feature is preserved by the Landau-Lifshitz-Gilbert equation. Consider the time derivative of the squared magnetization
+</p>
+<p>
+ <span class="math">
+  \[\partial_t |\boldsymbol{m}|^2 = 
+  \partial_t (\boldsymbol{m} \cdot \boldsymbol{m}) = 
+  2 \partial_t \boldsymbol{m} \cdot \boldsymbol{m}.\]
+ </span>
+</p>
+<p>
+ Inserting Eqn.
+ <span class="math">
+  \(\text{\ref{eq:llg_implicit}}\)
+ </span>
+ immediately yields
+ <span class="math">
+  \(\partial_t |\boldsymbol{m}|^2 = 0\)
+ </span>
+ and thus also
+ <span class="math">
+  \(\partial_t |\boldsymbol{m}| = 0\)
+ </span>
+ .
+</p>
+<h4 id="lyapunov-structure">
+ <span class="header-section-number">
+  0.3.5.2
+ </span>
+ Lyapunov Structure
+</h4>
+<p>
+ If the energy functional of a magnetic system does not explicitly depend on the time, i.e. if the external field is constant in time, the time derivative of the energy density may be written as
+</p>
+<p>
+ <span class="math">
+  \begin{align}
+  \partial_t U
+  &amp;= \frac{\delta U}{\delta \boldsymbol{m}} \cdot \partial_t \boldsymbol{m} \\
+  &amp;= - \mu_0 M_{\text{s}} \boldsymbol{H}_{\text{eff}} \cdot \partial_t \boldsymbol{m}.\end{align}
+ </span>
+</p>
+<p>
+ Replacing
+ <span class="math">
+  \(\partial_t \boldsymbol{m}\)
+ </span>
+ with Eqn.
+ <span class="math">
+  \(\text{\ref{eq:llg_explicit}}\)
+ </span>
+ and spatial integration yields
+</p>
+<p>
+ <span class="math">
+  \begin{align}
+  \partial_t E
+  &amp;= \mu_0 M_{\text{s}} \int_\Omega \boldsymbol{H}_{\text{eff}} [ \gamma' \boldsymbol{m} \times \boldsymbol{H}_{\text{eff}} + \alpha' \cdot  \boldsymbol{m} \times (\boldsymbol{m} \times \boldsymbol{H}_{\text{eff}}) ] \,\text{d}\boldsymbol{r}\\
+  &amp;= - \mu_0 M_{\text{s}} \alpha' \int_\Omega | \boldsymbol{m} \times \boldsymbol{H} |^2 \,\text{d}\boldsymbol{r}\label{eq:llg_energy_loss}\\
+  &amp;\leq 0.\end{align}
+ </span>
+</p>
+<p>
+ This means that the energy of a magnetic system is always a non increasing function in time. The Landau-Lifshitz-Gilbert equation is said to have Lyapunov structure
+ <span class="citation" data-cites="daquino_2005 cimrak_2007">
+  d’Aquino, Serpico, and Miano (2005; Cimr
+  <span>
+   á
+  </span>
+  k 2007)
+ </span>
+ .
+</p>
+<h4 id="hamiltonian-structure">
+ <span class="header-section-number">
+  0.3.5.3
+ </span>
+ Hamiltonian Structure
+</h4>
+<p>
+ In the special case of no damping
+ <span class="math">
+  \(\alpha = 0\)
+ </span>
+ the right-hand side of Eqn.
+ <span class="math">
+  \(\text{\ref{eq:llg_energy_loss}}\)
+ </span>
+ vanishes
+</p>
+<p>
+ <span class="math">
+  \[\partial_t E = 0.\]
+ </span>
+</p>
+<p>
+ In this case the energy of the system ist preserved and the Landau-Lifshitz-Gilbert equation has Hamiltonian structure.
+</p>
+<h2 id="sec-micromag-limits">
+ <span class="header-section-number">
+  0.4
+ </span>
+ Limits and Extensions of the Micromagnetic Model
+</h2>
+<p>
+ As discussed in Sec. <a href="#sec-assumptions">0.1</a> the micromagnetic model introduces a set of simplifications to the quantum mechanical description of magnetism. While justified for a broad range of applications, these simplifications may be inappropriate in some cases. The successfull application of micromagnetism to physical problems requires a solid understanding of the origin of this model. It is crucial to consider its underlying assumptions and simplifications in order to predict the validity of simulation results for specific physical problems. Without claiming to be complete, this section discusses a number of limits and extension to the basic micromagnetic model as introduced in the preceding sections.
+</p>
+<h4 id="bloch-points">
+ <span class="header-section-number">
+  0.4.0.1
+ </span>
+ Bloch Points
+</h4>
+<p>
+ The central assumption in micromagnetics is the homogeneous saturation magnetization
+ <span class="math">
+  \(M_{\text{s}}\)
+ </span>
+ . This assumption is justified by the fact that ferromagnetic materials are subject to exchange coupling which leads to locally almost perfectly aligned magnetic moments.
+</p>
+<p>
+ However, certain magnetic processes involve the creation of magnetic singularities called Bloch points. At these Bloch points the magnetization changes rapidly in space, which is inconsistent with the basic assumption of a homogeneous
+ <span class="math">
+  \(M_{\text{s}}\)
+ </span>
+ in micromagnetics. Despite this fact it was shown in
+ <span class="citation" data-cites="thiaville_2003">
+  Thiaville et al. (2003)
+ </span>
+ that micromagnetic simulations involving the creation of Bloch points are able to describe the corresponding processes in accordance with experiments, although the energy density at the Bloch point is underestimated.
+</p>
+<h4 id="temperature">
+ <span class="header-section-number">
+  0.4.0.2
+ </span>
+ Temperature
+</h4>
+<p>
+ Another example for the violation of the micromagnetic assumption of a locally homogeneous magnetization is given by thermal effects. Thermal effects are most naturally reflected by local perturbation of magnetic moments. Perturbation of a single magnetic moment, however, obviously breaks the homogeneity of the magnetization. In the framework of classical micromagnetics a possible approach for consideration of finite temperature is the reduction of the saturation magnetization according to a mean-field approximation, see
+ <span class="citation" data-cites="kittel_1996">
+  Kittel and McEuen (1996)
+ </span>
+ . Another approach is to add a fluctuating field to the effective field, which converts the Landau-Lifshitz-Gilbert equation into a stochastic differential equation, see
+ <span class="citation" data-cites="lyberatos_1993">
+  Lyberatos, Berkov, and Chantrell (1993)
+ </span>
+ . Both of these techniques do not account for local changes in the saturation magnetization and as a result both methods fail to describe the magnetization dynamics correctly when approaching the Curie temperature. This deficiency is overcome by the Landau-Lifshitz-Bloch equation, which extends the Landau-Lifshitz-Gilbert equation not only by a fluctuating field, but also by a term that allows the change of the magnetization modulus
+ <span class="citation" data-cites="garanin_1997">
+  Garanin (1997)
+ </span>
+ .
+</p>
+<h4 id="spin-polarized-current">
+ <span class="header-section-number">
+  0.4.0.3
+ </span>
+ Spin Polarized Current
+</h4>
+<p>
+ Other successfull extensions to the micromagnetic model include the description of spin polarized currents and its interactions with the magnetization configuration
+ <span class="citation" data-cites="zhang_2004">
+  Zhang and Li (2004)
+ </span>
+ . A famous application for this interaction is the magnetic racetrack memory proposed by Parkin et al. in
+ <span class="citation" data-cites="parkin_2008">
+  Parkin, Hayashi, and Thomas (2008)
+ </span>
+ .
+</p>
+<h4 id="interfaces">
+ <span class="header-section-number">
+  0.4.0.4
+ </span>
+ Interfaces
+</h4>
+<p>
+ The micromagnetic model was designed to describe the energetics and dynamics in a homogeneous material. Thus the description of interfaces between different materials gives rise to another limit of the model. The magnetic coupling at these interfaces is often not entirely clear and can be subject to quantum mechanical effects that are not covered by the micromagnetic model. These effects include the Ruderman-Kittel-Kasuya-Yosida interaction (RKKY)
+ <span class="citation" data-cites="parkin_1991">
+  Parkin and Mauri (1991)
+ </span>
+ and the Dzyaloshinskii-Moriya Interaction (DMI)
+ <span class="citation" data-cites="sergienko_2006">
+  Sergienko and Dagotto (2006)
+ </span>
+ . Work has been done on the integration of these effects into micromagnetic theory and computations, see
+ <span class="citation" data-cites="heide_2008 lopez_2012 thiaville_2012">
+  Heide, Bihlmayer, and Bl
+  <span>
+   ü
+  </span>
+  gel (2008; Lopez-Diaz et al. 2012; Thiaville et al. 2012)
+ </span>
+ . A common simplification for the description of thin multilayer materials however is the assumption of a bulk material with efficient material constants. These efficient material constants are determined by experiments.
+</p>
+<h2 id="sec-solving-micromag">
+ <span class="header-section-number">
+  0.5
+ </span>
+ Solving the Micromagnetic Equations
+</h2>
+<p>
+ The Landau-Lifshitz-Gilbert equation with effective field contributions as introduced in the preceding sections is a non-linear partial differential equation in space and time. Apart from some simplified edge cases the arising system of equations cannot be solved analytically. This work is dedicated to the numerical solution of the micromagnetic equations. In the following chapters the discrete solution of the different subproblems is discussed in detail. An overview over existing methods is given and novel methods are introduced. Finally the open-source finite-element micromagnetic simulation code magnum.fe is presented.
+</p>
+<div class="references">
+ <p>
+  Alouges, F., and A. Soyeur. 1992. “On Global Weak Solutions for Landau-Lifshitz Equations: Existence and Nonuniqueness.”
+  <em>
+   Nonlinear Analysis: Theory, Methods &amp; Applications
+  </em>
+  18 (11): 1071–1084.
+ </p>
+ <p>
+  Bode, N., L. Arrachea, G. S. Lozano, T. S. Nunner, and F. von Oppen. 2012. “Current-Induced Switching in Transport Through Anisotropic Magnetic Molecules.”
+  <em>
+   Physical Review B
+  </em>
+  85 (11) (Mar): 115440. doi:
+  <a href="http://dx.doi.org/10.1103/PhysRevB.85.115440">
+   10.1103/PhysRevB.85.115440
+  </a>
+  .
+ </p>
+ <p>
+  <span>
+   Brown Jr.
+  </span>
+  , W. F. 1963.
+  <em>
+   Micromagnetics
+  </em>
+  . New York: Interscience Publisher.
+ </p>
+ <p>
+  Carbou, G., and P. Fabrie. 2001a. “Regular Solutions for Landau-Lifschitz Equation in a Bounded Domain.”
+  <em>
+   Differential and Integral Equations
+  </em>
+  14 (2): 213–229.
+ </p>
+ <p>
+  ———. 2001b. “Regular Solutions for Landau-Lifschitz Equation in R
+  <span class="math">
+   \(^3\)
+  </span>
+  .”
+  <em>
+   Communications in Applied Analysis
+  </em>
+  5 (1): 17–30.
+ </p>
+ <p>
+  Cimr
+  <span>
+   á
+  </span>
+  k, I. 2007. “A Survey on the Numerics and Computations for the Landau-Lifshitz Equation of Micromagnetism.”
+  <em>
+   Archives of Computational Methods in Engineering
+  </em>
+  15 (3): 1–37.
+ </p>
+ <p>
+  d’Aquino, M., C. Serpico, and G. Miano. 2005. “Geometrical Integration of Landau-Lifshitz-Gilbert Equation Based on the Mid-Point Rule.”
+  <em>
+   Journal of Computational Physics
+  </em>
+  209 (2): 730–753.
+ </p>
+ <p>
+  Döring, W. 1966. “Mikromagnetismus.” In
+  <em>
+   Handbuch Der Physik
+  </em>
+  , edited by S. Flügge, 18/2:314–437. Springer, Berlin Heidelberg.
+ </p>
+ <p>
+  Garanin, D. A. 1997. “Fokker-Planck and Landau-Lifshitz-Bloch Equations for Classical Ferromagnets.”
+  <em>
+   Physical Review B
+  </em>
+  55 (5): 3050.
+ </p>
+ <p>
+  Gilbert, T. L. 1955. “A Lagrangian Formulation of the Gyromagnetic Equation of the Magnetic Field.”
+  <em>
+   Physical Review
+  </em>
+  100: 1243.
+ </p>
+ <p>
+  ———. 2004. “A Phenomenological Theory of Damping in Ferromagnetic Materials.”
+  <em>
+   IEEE Transactions on Magnetics
+  </em>
+  40 (6): 3443–3449. doi:
+  <a href="http://dx.doi.org/10.1109/TMAG.2004.836740">
+   10.1109/TMAG.2004.836740
+  </a>
+  .
+ </p>
+ <p>
+  Griffiths, D. J. 1994.
+  <em>
+   Introduction to Quantum Mechanics
+  </em>
+  . New Jersey: Prentice Hall.
+ </p>
+ <p>
+  Heide, M., G. Bihlmayer, and S. Bl
+  <span>
+   ü
+  </span>
+  gel. 2008. “Dzyaloshinskii-Moriya Interaction Accounting for the Orientation of Magnetic Domains in Ultrathin Films: Fe/W (110).”
+  <em>
+   Physical Review B
+  </em>
+  78 (14): 140403.
+ </p>
+ <p>
+  Hubert, A., and R. Schäfer. 1998.
+  <em>
+   Magnetic Domains
+  </em>
+  . Berlin: Springer.
+ </p>
+ <p>
+  Jackson, J. D. 1999. “Classical Electrodynamics, 3rd Ed.”
+  <em>
+   American Journal of Physics
+  </em>
+  67 (9): 841. doi:
+  <a href="http://dx.doi.org/10.1119/1.19136">
+   10.1119/1.19136
+  </a>
+  .
+ </p>
+ <p>
+  Kittel, C., and P. McEuen. 1996.
+  <em>
+   Introduction to Solid State Physics
+  </em>
+  . Vol. 7. Wiley New York.
+ </p>
+ <p>
+  Landau, L. D., and E. M. Lifshitz. 1935. “On the Theory of the Dispersion of Magnetic Permeability in Ferromagnetic Bodies.”
+  <em>
+   Physikalische Zeitschrift Der Sowjetunion
+  </em>
+  8: 153–169.
+ </p>
+ <p>
+  ———. 1969. “Mechanics.” In
+  <em>
+   Course of Theoretical Physics
+  </em>
+  . Oxford: Pergamon Press.
+ </p>
+ <p>
+  Lopez-Diaz, L., D. Aurelio, L. Torres, E. Martinez, M. A. Hernandez-Lopez, J. Gomez, O. Alejos, M. Carpentieri, G. Finocchio, and G. Consolo. 2012. “Micromagnetic Simulations Using Graphics Processing Units.”
+  <em>
+   Journal of Physics D: Applied Physics
+  </em>
+  45 (32): 323001.
+ </p>
+ <p>
+  Lyberatos, A., D. V. Berkov, and R. W. Chantrell. 1993. “A Method for the Numerical Simulation of the Thermal Magnetization Fluctuations in Micromagnetics.”
+  <em>
+   Journal of Physics: Condensed Matter
+  </em>
+  5 (47): 8911.
+ </p>
+ <p>
+  Parkin, S. S. P., and D. Mauri. 1991. “Spin Engineering: Direct Determination of the Ruderman-Kittel-Kasuya-Yosida Far-Field Range Function in Ruthenium.”
+  <em>
+   Physical Review B
+  </em>
+  44 (13): 7131.
+ </p>
+ <p>
+  Parkin, S. S. P., M. Hayashi, and L. Thomas. 2008. “Magnetic Domain-Wall Racetrack Memory.”
+  <em>
+   Science
+  </em>
+  320 (5873): 190–194.
+ </p>
+ <p>
+  Rado, G.T., and J.R. Weertman. 1959. “Spin-Wave Resonance in a Ferromagnetic Metal.”
+  <em>
+   Journal of Physics and Chemistry of Solids
+  </em>
+  11 (3–4): 315–333. doi:
+  <a href="http://dx.doi.org/10.1016/0022-3697(59)90233-1">
+   10.1016/0022-3697(59)90233-1
+  </a>
+  .
+ </p>
+ <p>
+  Sergienko, I. A., and E. Dagotto. 2006. “Role of the Dzyaloshinskii-Moriya Interaction in Multiferroic Perovskites.”
+  <em>
+   Physical Review B
+  </em>
+  73 (9): 094434.
+ </p>
+ <p>
+  Thiaville, A., J. M. Garc
+  <span>
+   í
+  </span>
+  a, J. Miltat, T. Schrefl, and others. 2003. “Micromagnetic Study of Bloch-Point-Mediated Vortex Core Reversal.”
+  <em>
+   Physical Review B
+  </em>
+  67 (9): 094410.
+ </p>
+ <p>
+  Thiaville, A., S. Rohart,
+  <span>
+   É
+  </span>
+  . Ju
+  <span>
+   é
+  </span>
+  , V. Cros, and A. Fert. 2012. “Dynamics of Dzyaloshinskii Domain Walls in Ultrathin Magnetic Films.”
+  <em>
+   EPL (Europhysics Letters)
+  </em>
+  100 (5): 57002.
+ </p>
+ <p>
+  Thouless, D. J. 1961.
+  <em>
+   Quantum Mechanics of Many-Body Systems
+  </em>
+  . Academic Press, New York.
+ </p>
+ <p>
+  Wegrowe, J.-E., and M.-C. Ciornei. 2012. “Magnetization Dynamics, Gyromagnetic Relation, and Inertial Effects.”
+  <em>
+   American Journal of Physics
+  </em>
+  80 (7): 607–611. doi:
+  <a href="http://dx.doi.org/10.1119/1.4709188">
+   10.1119/1.4709188
+  </a>
+  .
+ </p>
+ <p>
+  Zhang, S., and Z. Li. 2004. “Roles of Nonequilibrium Conduction Electrons on the Magnetization Dynamics of Ferromagnets.”
+  <em>
+   Physical Review Letters
+  </em>
+  93 (12): 127204.
+ </p>
+</div>
+
+{% endraw %}
