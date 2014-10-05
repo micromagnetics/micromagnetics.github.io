@@ -1,0 +1,12 @@
+p.figure img {
+  display: block;
+  margin: 0 auto;
+}
+
+p.figure {
+  font-size: 0.9em;
+}
+
+p.figure span.label {
+  font-weight: bold;
+}

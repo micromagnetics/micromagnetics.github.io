@@ -1,11 +1,8 @@
 ---
 layout: page
-title: Page
+title: Micromagnetism
 ---
 {% raw %}
-<h1 class="unnumbered" id="ch:micromagnetism">
- Micromagnetism
-</h1>
 <table>
  <thead>
   <tr class="header">
@@ -105,19 +102,19 @@ title: Page
  For the description of ferromagnetism on the micron scale the theory of micromagnetism has proved to be a reliable tool. In contrast to domain theory it is able to resolve the inner structure of domain walls. On the other hand the micromagnetic equations can be solved numerically for relatively large system compared to atomistic approaches.
 </p>
 <p>
- This chapter is organized as follows. In Sec. <a href="#sec-assumptions">0.1</a> the assumptions and simplifications of the micromagnetic model are discussed. Section <a href="#sec-energetics">0.2</a> provides an overview over the different energy contributions of a ferromagnetic body. In Sec. <a href="#sec-llg">0.3</a> the Landau-Lifshitz-Gilbert equation is introduced, which describes the magnetization dynamics in micromagnetism. Section <a href="#sec-micromag-limits">0.4</a> and <a href="#sec-solving-micromag">0.5</a> discuss extensions, limits and solutions of the micromagnetic equations.
+ This chapter is organized as follows. In Sec. <a href="#sec-assumptions">1</a> the assumptions and simplifications of the micromagnetic model are discussed. Section <a href="#sec-energetics">2</a> provides an overview over the different energy contributions of a ferromagnetic body. In Sec. <a href="#sec-llg">3</a> the Landau-Lifshitz-Gilbert equation is introduced, which describes the magnetization dynamics in micromagnetism. Section <a href="#sec-micromag-limits">4</a> and <a href="#sec-solving-micromag">5</a> discuss extensions, limits and solutions of the micromagnetic equations.
 </p>
 <h2 id="sec-assumptions">
  <span class="header-section-number">
-  0.1
+  1
  </span>
  Assumptions in Micromagnetism
-</h2>
+</h1>
 <p>
  Magnetic matter basically consists of magnetic dipoles called elementary magnets. These dipoles can be identified with spins and orbital angular momentum of charges on the atomic level. Macroscopic magnetic properties are consequently derived from the interaction and superposition of these dipoles.
 </p>
 <p>
- In the special case of ferromagnetic materials, electrons with overlapping wave functions favor a parallel spin alignment due to the so-called exchange interaction, see Sec. <a href="#sec-energetics-exchange">0.2.1</a>. The alignment of elementary magnets
+ In the special case of ferromagnetic materials, electrons with overlapping wave functions favor a parallel spin alignment due to the so-called exchange interaction, see Sec. <a href="#sec-energetics-exchange">2.1</a>. The alignment of elementary magnets
  <span class="math">
   \(\boldsymbol{m}_i\)
  </span>
@@ -208,23 +205,23 @@ title: Page
  <span class="citation" data-cites="jackson_1999">
   Jackson (1999)
  </span>
- . Micromagnetism extends the classical field theory by non classical effects such as the exchange interaction. These effects are expressed in the framework of a continuum theory, see Sec. <a href="#sec-energetics">0.2</a>. Moreover, micromagnetism describes the dynamics of the magnetization field by the Landau-Lifshitz-Gilbert equation, see Sec. <a href="#sec-llg">0.3</a>. Due to this combination of classical field theory and quantum mechanics, micromagnetism is often referred to as semi-classical continuum theory.
+ . Micromagnetism extends the classical field theory by non classical effects such as the exchange interaction. These effects are expressed in the framework of a continuum theory, see Sec. <a href="#sec-energetics">2</a>. Moreover, micromagnetism describes the dynamics of the magnetization field by the Landau-Lifshitz-Gilbert equation, see Sec. <a href="#sec-llg">3</a>. Due to this combination of classical field theory and quantum mechanics, micromagnetism is often referred to as semi-classical continuum theory.
 </p>
 <h2 id="sec-energetics">
  <span class="header-section-number">
-  0.2
+  2
  </span>
  Energetics of a Ferromagnet
-</h2>
+</h1>
 <p>
- The total energy of a ferromagnet with respect to the magnetization is influenced by a multitude of physical effects. While some of these effects have a classical description, like the demagnetization energy and the Zeeman energy, others have a quantum mechanical origin and have to be adapted to the continuum theory of micromagnetism, e.g. the exchange energy and the anisotropy energy. By finding local minima of the energy functional, stable magnetization configurations can be obtained. However, the total energy does also play an important role for the dynamics of a ferromagnet as will be seen in Sec. <a href="#sec-llg">0.3</a>.
+ The total energy of a ferromagnet with respect to the magnetization is influenced by a multitude of physical effects. While some of these effects have a classical description, like the demagnetization energy and the Zeeman energy, others have a quantum mechanical origin and have to be adapted to the continuum theory of micromagnetism, e.g. the exchange energy and the anisotropy energy. By finding local minima of the energy functional, stable magnetization configurations can be obtained. However, the total energy does also play an important role for the dynamics of a ferromagnet as will be seen in Sec. <a href="#sec-llg">3</a>.
 </p>
 <h3 id="sec-energetics-exchange">
  <span class="header-section-number">
-  0.2.1
+  2.1
  </span>
  Exchange Energy
-</h3>
+</h2>
 <p>
  The characteristic feature of ferromagnetic materials is the existence of spontaneous magnetization. From classical electrodynamics it is known that neighboring spins energetically favor an antiparallel alignment
  <span class="citation" data-cites="jackson_1999">
@@ -441,10 +438,10 @@ title: Page
 </p>
 <h3 id="sec-energetics-demag">
  <span class="header-section-number">
-  0.2.2
+  2.2
  </span>
  Demagnetization Energy
-</h3>
+</h2>
 <p>
  The demagnetization energy, also called magnetostatic energy or stray-field energy, is the energy of the magnetization in the magnetic field created by the magnetization itself. This means that this energy contribution accounts for the dipole–dipole interaction of the elementary magnets.
 </p>
@@ -558,14 +555,12 @@ title: Page
  </span>
  .
 </p>
-<p id="fig-demag-limit">
+<p class="figure" id="fig-demag-limit">
  <img alt=" Sketch of the limiting procedure used for the derivation of the boundary term in the integral solution of the scalar potential. The discontinuity of the magnetization across the sample boundary \partial \Omega is smoothed out in a region \Omega_{\text{d}} surrounding the sample. " src="/images/demag_limit.svg"/>
- <div class="caption">
-  <span class="label">
-   Figure 1:
-  </span>
-  Sketch of the limiting procedure used for the derivation of the boundary term in the integral solution of the scalar potential. The discontinuity of the magnetization across the sample boundary \partial \Omega is smoothed out in a region \Omega_{\text{d}} surrounding the sample.
- </div>
+ <span class="label">
+  Figure 1:
+ </span>
+ Sketch of the limiting procedure used for the derivation of the boundary term in the integral solution of the scalar potential. The discontinuity of the magnetization across the sample boundary \partial \Omega is smoothed out in a region \Omega_{\text{d}} surrounding the sample.
 </p>
 <p>
  In this case the solution of Eqn.
@@ -772,10 +767,10 @@ title: Page
 </p>
 <h3 id="sec-energetics-anisotropy">
  <span class="header-section-number">
-  0.2.3
+  2.3
  </span>
  Anisotropy Energy
-</h3>
+</h2>
 <p>
  Depending on the crystal structure of a ferromagnetic material, it energetically favors the alignment of the magnetization parallel to certain axes. This energy contribution results from spin-orbit interactions
  <span class="citation" data-cites="hubert_1998">
@@ -882,10 +877,10 @@ title: Page
 </p>
 <h3 id="sec-energetics-zeeman">
  <span class="header-section-number">
-  0.2.4
+  2.4
  </span>
  Zeeman Energy
-</h3>
+</h2>
 <p>
  The Zeeman energy of a ferromagnetic body is the energy of the magnetization in an external field
  <span class="math">
@@ -900,10 +895,10 @@ title: Page
 </p>
 <h2 id="sec-llg">
  <span class="header-section-number">
-  0.3
+  3
  </span>
  Landau-Lifshitz-Gilbert Equation
-</h2>
+</h1>
 <p>
  The central equation in micromagnetism for the description of magnetization dynamics is the Landau-Lifshitz-Gilbert equation, which was originally proposed in
  <span class="citation" data-cites="landau_1935">
@@ -924,10 +919,10 @@ title: Page
 </p>
 <h3 id="sec-llg-lagrange">
  <span class="header-section-number">
-  0.3.1
+  3.1
  </span>
  Lagrange Approach
-</h3>
+</h2>
 <p>
  With an appropriate Lagrange functional the Landau-Lifshitz-Gilbert equation can be obtained by the Lagrangian formalism. Since the magnetization
  <span class="math">
@@ -1042,7 +1037,7 @@ title: Page
  <span class="math">
   \(\dot{\boldsymbol{q}}\)
  </span>
- are the generalized coordinates and their time derivatives respectively. In micromagnetics the potential energy is given by the energy contributions discussed in Sec. <a href="#sec-energetics">0.2</a>. The kinetic energy however has no classical explanation since the magnetization does not have inertia in the classical sense. In
+ are the generalized coordinates and their time derivatives respectively. In micromagnetics the potential energy is given by the energy contributions discussed in Sec. <a href="#sec-energetics">2</a>. The kinetic energy however has no classical explanation since the magnetization does not have inertia in the classical sense. In
  <span class="citation" data-cites="gilbert_1955">
   Gilbert (1955)
  </span>
@@ -1245,15 +1240,15 @@ title: Page
 </p>
 <h3 id="sec-llg-qm">
  <span class="header-section-number">
-  0.3.2
+  3.2
  </span>
  Quantum Mechanical Approach
-</h3>
+</h2>
 <p>
- In Sec. <a href="#sec-llg-lagrange">0.3.1</a> it is shown that the Landau-Lifshitz-Gilbert equation can be obtained by application of the classical Lagrange formalism. However, this method is based on a particular choice of the Lagrangian, which is not completely justifiable by classical theory.
+ In Sec. <a href="#sec-llg-lagrange">3.1</a> it is shown that the Landau-Lifshitz-Gilbert equation can be obtained by application of the classical Lagrange formalism. However, this method is based on a particular choice of the Lagrangian, which is not completely justifiable by classical theory.
 </p>
 <p>
- In this section a quantum mechanical approach is discussed to derive the Landau-Lifshitz-Gilbert equation. As described in Sec. <a href="#sec-assumptions">0.1</a> the continuous magnetization field approximates a discrete distribution of spins. In quantum mechanics the components of the spin are described by the spin operators
+ In this section a quantum mechanical approach is discussed to derive the Landau-Lifshitz-Gilbert equation. As described in Sec. <a href="#sec-assumptions">1</a> the continuous magnetization field approximates a discrete distribution of spins. In quantum mechanics the components of the spin are described by the spin operators
  <span class="math">
   \(\hat{S}_i\)
  </span>
@@ -1372,18 +1367,16 @@ title: Page
 </p>
 <h3 id="sec-effective-field">
  <span class="header-section-number">
-  0.3.3
+  3.3
  </span>
  Effective Field
-</h3>
-<p id="fig-llg">
+</h2>
+<p class="figure" id="fig-llg">
  <img alt=" Time evolution of a single magnetic moment as described by the Landau-Lifshitz-Gilbert equation. The motion can be divided into a precessional and a damping part. (a) Precessional motion around the effective field. (b) Damped motion. The magnetization relaxes towards the effective field. (c) Resulting motion including precession and damping. " src="/images/llg.svg"/>
- <div class="caption">
-  <span class="label">
-   Figure 2:
-  </span>
-  Time evolution of a single magnetic moment as described by the Landau-Lifshitz-Gilbert equation. The motion can be divided into a precessional and a damping part. (a) Precessional motion around the effective field. (b) Damped motion. The magnetization relaxes towards the effective field. (c) Resulting motion including precession and damping.
- </div>
+ <span class="label">
+  Figure 2:
+ </span>
+ Time evolution of a single magnetic moment as described by the Landau-Lifshitz-Gilbert equation. The motion can be divided into a precessional and a damping part. (a) Precessional motion around the effective field. (b) Damped motion. The magnetization relaxes towards the effective field. (c) Resulting motion including precession and damping.
 </p>
 <p>
  The Landau-Lifshitz-Gilbert equation describes the motion of the magnetization in an effective field defined by Eqn.
@@ -1451,18 +1444,16 @@ title: Page
 </p>
 <h3 id="boundary-conditions">
  <span class="header-section-number">
-  0.3.4
+  3.4
  </span>
  Boundary Conditions
-</h3>
-<p id="fig-boundary-sketch">
+</h2>
+<p class="figure" id="fig-boundary-sketch">
  <img alt=" A so-called Gaussian pillbox \Omega_{\text{p}} on the outer boundary of the sample \Omega. The discontinuity of the magnetization \boldsymbol{m} across the sample boundary \partial \Omega is smoothed out within the pillbox, as sketched on the right-hand side. Properties of the discontinuous system are obtained by considering the limit d \rightarrow 0. " src="/images/boundary_limit.svg"/>
- <div class="caption">
-  <span class="label">
-   Figure 3:
-  </span>
-  A so-called Gaussian pillbox \Omega_{\text{p}} on the outer boundary of the sample \Omega. The discontinuity of the magnetization \boldsymbol{m} across the sample boundary \partial \Omega is smoothed out within the pillbox, as sketched on the right-hand side. Properties of the discontinuous system are obtained by considering the limit d \rightarrow 0.
- </div>
+ <span class="label">
+  Figure 3:
+ </span>
+ A so-called Gaussian pillbox \Omega_{\text{p}} on the outer boundary of the sample \Omega. The discontinuity of the magnetization \boldsymbol{m} across the sample boundary \partial \Omega is smoothed out within the pillbox, as sketched on the right-hand side. Properties of the discontinuous system are obtained by considering the limit d \rightarrow 0.
 </p>
 <p>
  Due to the first derivate in time the Landau-Lifshitz-Gilbert equation is an initial value problem. In order to find a solution
@@ -1484,7 +1475,7 @@ title: Page
  <span class="citation" data-cites="carbou_2001a carbou_2001b alouges_1992">
   Carbou and Fabrie (2001a; Carbou and Fabrie 2001b; Alouges and Soyeur 1992)
  </span>
- . From the effective field contribution discussed in Sec. <a href="#sec-effective-field">0.3.3</a>, the exchange field is the only one that adds the need of boundary conditions due to its second order in space.
+ . From the effective field contribution discussed in Sec. <a href="#sec-effective-field">3.3</a>, the exchange field is the only one that adds the need of boundary conditions due to its second order in space.
 </p>
 <p>
  If this so-called exchange boundary condition is applied on the boundary of an ideal magnetic body, i.e. a boundary where the magnetization rapidly drops to zero, it is uniquely defined. Consider the Landau-Lifshitz-Gilbert equation without damping and with the exchange field as effective field.
@@ -1500,7 +1491,7 @@ title: Page
  <span class="math">
   \(\Delta \boldsymbol{m}\)
  </span>
- is not defined, a limiting procedure is used to obtain the boundary condition. Like in Sec. <a href="#sec-energetics-demag">0.2.2</a> the magnetization is considered to decay continuously in a finite interval
+ is not defined, a limiting procedure is used to obtain the boundary condition. Like in Sec. <a href="#sec-energetics-demag">2.2</a> the magnetization is considered to decay continuously in a finite interval
  <span class="math">
   \(d\)
  </span>
@@ -1611,18 +1602,18 @@ title: Page
 </p>
 <h3 id="sec-llg-properties">
  <span class="header-section-number">
-  0.3.5
+  3.5
  </span>
  Properties of the Landau-Lifshitz-Gilbert Equation
-</h3>
+</h2>
 <h4 id="preservation-of-modulus">
  <span class="header-section-number">
-  0.3.5.1
+  3.5.1
  </span>
  Preservation of Modulus
-</h4>
+</h3>
 <p>
- As mentioned in Sec. <a href="#sec-assumptions">0.1</a> the magnetization
+ As mentioned in Sec. <a href="#sec-assumptions">1</a> the magnetization
  <span class="math">
   \(\boldsymbol{m}\)
  </span>
@@ -1652,10 +1643,10 @@ title: Page
 </p>
 <h4 id="lyapunov-structure">
  <span class="header-section-number">
-  0.3.5.2
+  3.5.2
  </span>
  Lyapunov Structure
-</h4>
+</h3>
 <p>
  If the energy functional of a magnetic system does not explicitly depend on the time, i.e. if the external field is constant in time, the time derivative of the energy density may be written as
 </p>
@@ -1700,10 +1691,10 @@ title: Page
 </p>
 <h4 id="hamiltonian-structure">
  <span class="header-section-number">
-  0.3.5.3
+  3.5.3
  </span>
  Hamiltonian Structure
-</h4>
+</h3>
 <p>
  In the special case of no damping
  <span class="math">
@@ -1725,19 +1716,19 @@ title: Page
 </p>
 <h2 id="sec-micromag-limits">
  <span class="header-section-number">
-  0.4
+  4
  </span>
  Limits and Extensions of the Micromagnetic Model
-</h2>
+</h1>
 <p>
- As discussed in Sec. <a href="#sec-assumptions">0.1</a> the micromagnetic model introduces a set of simplifications to the quantum mechanical description of magnetism. While justified for a broad range of applications, these simplifications may be inappropriate in some cases. The successfull application of micromagnetism to physical problems requires a solid understanding of the origin of this model. It is crucial to consider its underlying assumptions and simplifications in order to predict the validity of simulation results for specific physical problems. Without claiming to be complete, this section discusses a number of limits and extension to the basic micromagnetic model as introduced in the preceding sections.
+ As discussed in Sec. <a href="#sec-assumptions">1</a> the micromagnetic model introduces a set of simplifications to the quantum mechanical description of magnetism. While justified for a broad range of applications, these simplifications may be inappropriate in some cases. The successfull application of micromagnetism to physical problems requires a solid understanding of the origin of this model. It is crucial to consider its underlying assumptions and simplifications in order to predict the validity of simulation results for specific physical problems. Without claiming to be complete, this section discusses a number of limits and extension to the basic micromagnetic model as introduced in the preceding sections.
 </p>
 <h4 id="bloch-points">
  <span class="header-section-number">
-  0.4.0.1
+  4.0.1
  </span>
  Bloch Points
-</h4>
+</h3>
 <p>
  The central assumption in micromagnetics is the homogeneous saturation magnetization
  <span class="math">
@@ -1758,10 +1749,10 @@ title: Page
 </p>
 <h4 id="temperature">
  <span class="header-section-number">
-  0.4.0.2
+  4.0.2
  </span>
  Temperature
-</h4>
+</h3>
 <p>
  Another example for the violation of the micromagnetic assumption of a locally homogeneous magnetization is given by thermal effects. Thermal effects are most naturally reflected by local perturbation of magnetic moments. Perturbation of a single magnetic moment, however, obviously breaks the homogeneity of the magnetization. In the framework of classical micromagnetics a possible approach for consideration of finite temperature is the reduction of the saturation magnetization according to a mean-field approximation, see
  <span class="citation" data-cites="kittel_1996">
@@ -1779,10 +1770,10 @@ title: Page
 </p>
 <h4 id="spin-polarized-current">
  <span class="header-section-number">
-  0.4.0.3
+  4.0.3
  </span>
  Spin Polarized Current
-</h4>
+</h3>
 <p>
  Other successfull extensions to the micromagnetic model include the description of spin polarized currents and its interactions with the magnetization configuration
  <span class="citation" data-cites="zhang_2004">
@@ -1796,10 +1787,10 @@ title: Page
 </p>
 <h4 id="interfaces">
  <span class="header-section-number">
-  0.4.0.4
+  4.0.4
  </span>
  Interfaces
-</h4>
+</h3>
 <p>
  The micromagnetic model was designed to describe the energetics and dynamics in a homogeneous material. Thus the description of interfaces between different materials gives rise to another limit of the model. The magnetic coupling at these interfaces is often not entirely clear and can be subject to quantum mechanical effects that are not covered by the micromagnetic model. These effects include the Ruderman-Kittel-Kasuya-Yosida interaction (RKKY)
  <span class="citation" data-cites="parkin_1991">
@@ -1821,10 +1812,10 @@ title: Page
 </p>
 <h2 id="sec-solving-micromag">
  <span class="header-section-number">
-  0.5
+  5
  </span>
  Solving the Micromagnetic Equations
-</h2>
+</h1>
 <p>
  The Landau-Lifshitz-Gilbert equation with effective field contributions as introduced in the preceding sections is a non-linear partial differential equation in space and time. Apart from some simplified edge cases the arising system of equations cannot be solved analytically. This work is dedicated to the numerical solution of the micromagnetic equations. In the following chapters the discrete solution of the different subproblems is discussed in detail. An overview over existing methods is given and novel methods are introduced. Finally the open-source finite-element micromagnetic simulation code magnum.fe is presented.
 </p>
