@@ -10,17 +10,10 @@ relative_permalinks: true
 title:            'micromagnetics'
 tagline:          'theory and numerics'
 description:      ''
-url:              http://hyde.getpoole.com
+url:              http://micromagnetics.org
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Claas Abert'
 
 paginate:         5
-
-# Custom vars
-version:          2.1.0
-
-github:
-  repo:           https://github.com/poole/hyde
