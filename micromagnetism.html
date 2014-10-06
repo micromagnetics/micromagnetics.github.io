@@ -4,7 +4,16 @@ title: Micromagnetism
 position: 2
 ---
 {% raw %}
-<table>
+<p>
+ <strong>
+  This chapter is in part taken from
+  <span class="citation" data-cites="abert_thesis">
+   Abert (2013)
+  </span>
+  .
+ </strong>
+</p>
+<table id="tab-magnetism-models">
  <thead>
   <tr class="header">
    <th style="text-align: left;">
@@ -79,8 +88,11 @@ position: 2
   </tr>
  </tbody>
 </table>
-<p>
- [tab:magnetism-models]
+<p class="caption">
+ <span class="label">
+  Table 1:
+ </span>
+ Established models for the description of ferromagnetism on different length scales.
 </p>
 <p>
  Ferromagnetic materials from the viewpoint of theoretical physics are most accurately described by the theory of quantum mechanics. In this theory the ferromagnet is described by a
@@ -97,7 +109,7 @@ position: 2
  . Thus analytical calculations in this framework are restricted to very small systems.
 </p>
 <p>
- Different models have been proposed in order to approximately describe ferromagnetic materials on a macroscopic scale. Depending on the simplifications introduced by a particular model it is able to describe the system accurately only under certain assumptions and on a certain length scale. Table [tab:magnetism-models] gives an overview of established models for the description of ferromagnets on different length scales.
+ Different models have been proposed in order to approximately describe ferromagnetic materials on a macroscopic scale. Depending on the simplifications introduced by a particular model it is able to describe the system accurately only under certain assumptions and on a certain length scale. Table <a href="#tab-magnetism-models">1</a> gives an overview of established models for the description of ferromagnets on different length scales.
 </p>
 <p>
  For the description of ferromagnetism on the micron scale the theory of micromagnetism has proved to be a reliable tool. In contrast to domain theory it is able to resolve the inner structure of domain walls. On the other hand the micromagnetic equations can be solved numerically for relatively large system compared to atomistic approaches.
@@ -561,7 +573,7 @@ position: 2
  <span class="label">
   Figure 1:
  </span>
- Sketch of the limiting procedure used for the derivation of the boundary term in the integral solution of the scalar potential. The discontinuity of the magnetization across the sample boundary \partial \Omega is smoothed out in a region \Omega_{\text{d}} surrounding the sample.
+ Sketch of the limiting procedure used for the derivation of the boundary term in the integral solution of the scalar potential. The discontinuity of the magnetization across the sample boundary <span class="math">\(\partial \Omega\)</span> is smoothed out in a region <span class="math">\(\Omega_{\text{d}}\)</span> surrounding the sample.
 </p>
 <p>
  In this case the solution of Eqn.
@@ -1454,7 +1466,7 @@ position: 2
  <span class="label">
   Figure 3:
  </span>
- A so-called Gaussian pillbox \Omega_{\text{p}} on the outer boundary of the sample \Omega. The discontinuity of the magnetization \boldsymbol{m} across the sample boundary \partial \Omega is smoothed out within the pillbox, as sketched on the right-hand side. Properties of the discontinuous system are obtained by considering the limit d \rightarrow 0.
+ A so-called Gaussian pillbox <span class="math">\(\Omega_{\text{p}}\)</span> on the outer boundary of the sample <span class="math">\(\Omega\)</span>. The discontinuity of the magnetization <span class="math">\(\boldsymbol{m}\)</span> across the sample boundary <span class="math">\(\partial \Omega\)</span> is smoothed out within the pillbox, as sketched on the right-hand side. Properties of the discontinuous system are obtained by considering the limit <span class="math">\(d \rightarrow 0\)</span>.
 </p>
 <p>
  Due to the first derivate in time the Landau-Lifshitz-Gilbert equation is an initial value problem. In order to find a solution
@@ -1821,6 +1833,9 @@ position: 2
  The Landau-Lifshitz-Gilbert equation with effective field contributions as introduced in the preceding sections is a non-linear partial differential equation in space and time. Apart from some simplified edge cases the arising system of equations cannot be solved analytically. This work is dedicated to the numerical solution of the micromagnetic equations. In the following chapters the discrete solution of the different subproblems is discussed in detail. An overview over existing methods is given and novel methods are introduced. Finally the open-source finite-element micromagnetic simulation code magnum.fe is presented.
 </p>
 <div class="references">
+ <p>
+  Abert, C. 2013. “Discrete Mathematical Concepts in Micromagnetic Computations.” PhD thesis, University of Hamburg.
+ </p>
  <p>
   Alouges, F., and A. Soyeur. 1992. “On Global Weak Solutions for Landau-Lifshitz Equations: Existence and Nonuniqueness.”
   <em>

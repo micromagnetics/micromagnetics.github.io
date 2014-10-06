@@ -1,12 +1,29 @@
 p.figure img {
   display: block;
-  margin: 0 auto;
+  margin: 1.5em auto;
 }
 
 p.figure {
   font-size: 0.9em;
+  margin-bottom: 2em;
 }
 
 p.figure span.label {
   font-weight: bold;
+}
+
+p.caption {
+  font-size: 0.9em;
+}
+
+p.caption span.label {
+  font-weight: bold;
+}
+
+span.citation:before {
+  content: "["
+}
+
+span.citation:after {
+  content: "]"
 }
