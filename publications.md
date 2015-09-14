@@ -4,6 +4,8 @@ title: Publications
 position: 3
 ---
 
+last Update, 14 September, 2015
+
 * Abert, C., Ruggeri, M., Bruckner, F., Vogler, C., Hrkac, G., Praetorius, D., & Suess, D. (2014). Self-consistent micromagnetic simulations including spin-diffusion effects. Scientific Reports, in press, preprint available at arXiv:1410.6067.
 * Ruggeri, M., Abert C., Hrkac G., Suess D., & Praetorius D. (2015). Coupling of dynamical micromagnetism and a stationary spin drift-diffusion equation: A step towards a fully self-consistent spintronics framework. Physica B: Condensed Matter, in press
 * Abert, C., Bruckner, F., Vogler, C., Windl, R., Thanhoffer, R., & Suess, D. (2015). A full-fledged micromagnetic code in fewer than 70 lines of NumPy. Journal of Magnetism and Magnetic Materials, 387, 13-18.
