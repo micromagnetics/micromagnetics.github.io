@@ -4,7 +4,7 @@ title: Software
 position: 1
 ---
 
-![magnum.fe](images/magnum_fe.svg)
+![magnum.fe]({{site.url}}/images/magnum_fe.svg)
 
 magnum.fe is a finite-element package for the solution of dynamical micromagnetic problems.
 It is written in Python and C++ and largely relies on the multi purpose finite-element library [FEniCS](http://fenicsproject.org/).
@@ -15,7 +15,7 @@ Visit the homepage [http://micromagnetics.org/magnum.fe](http://micromagnetics.o
 
 <hr />
 
-![magnum.fd](images/magnum_fd.svg)
+![magnum.fd]({{site.url}}/images/magnum_fd.svg)
 
 magnum.fd is a finite-difference package for the solution of dynamical micromagnetic problems.
 It is a fork of [MicroMagnum](http://magnum.physnet.uni-hamburg.de).
