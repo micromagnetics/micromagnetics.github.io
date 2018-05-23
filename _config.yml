@@ -6,7 +6,7 @@ title:            'micromagnetics'
 tagline:          'theory and numerics'
 description:      ''
 url:              http://micromagnetics.org
-baseurl:          '/'
+baseurl:          http://micromagnetics.org/
 
 author:
   name:           'Claas Abert'
