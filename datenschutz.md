@@ -1,10 +1,9 @@
 ---
 layout: page
-title: Datenschutz
+title: Datenschutzerklärung
 position: 7
 ---
 
-<h1>Datenschutzerklärung</h1>
 <p>Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO), ist:</p>
 <p>Claas Abert
 <br>Universität Wien
